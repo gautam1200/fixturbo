@@ -77,6 +77,7 @@ function Sliders() {
                             <Box
                                 sx={{
                                     padding: '0 10px',
+                                    boxSizing: 'border-box',
                                 }}>
 
                                 <Box

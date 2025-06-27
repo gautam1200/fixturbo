@@ -55,6 +55,7 @@ ul li a:hover {
   }
 }
 
+
 .icon {
   width: 65%;
   padding: 8px;
@@ -91,21 +92,53 @@ ul li a:hover {
   border-radius: 10px!important;
 }
 
-/* .Galleryimg:hover {
-  display: block !important;
-} */
+/* Default styles */
+.responsive-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
 
-/* .slick-track{
-  width: 0px !important;
-} */
+/* Styles for screens between 600px and 900px */
+@media (min-width: 0px) and (max-width: 600px) {
+  .responsive-img {
+    width: 100%!important;
+  }
+}
 
+/* Styles for screens above 900px */
+@media (min-width: 600px) {
+  .responsive-img {
+    width: 60%;
+  }
+  @keyframes updown {
+  0% {
+    transform: translateY(-10px);
+  }
 
-/* .slick-slide {
-      margin: 0 5px;
-      
-  } */
+  50% {
+    transform: translateY(20px);
+  }
 
-  /* the parent */
-  /* .slick-list {
-      margin: 0 -10px;
-  } */
+  100% {
+    transform: translateY(-10px);
+  }
+  
+}
+@keyframes leftRight {
+  0% {
+    transform: translateX(-20px);
+  }
+
+  50% {
+    transform: translateX(30px);
+  }
+
+  100% {
+    transform: translateX(-20px);
+  }
+  
+}
+
+}
+
