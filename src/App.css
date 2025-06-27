@@ -1,0 +1,106 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Hand+Pre:wght@400..700&display=swap'); */
+/* "Edu NSW ACT Hand Pre", cursive; */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Slab", serif;
+}
+
+.header-link {
+  color: aqua !important;
+}
+
+.line::before {
+  content: "";
+  display: inline-block;
+  height: 2px;
+  margin-right: 12px;
+  position: relative;
+  top: -4px;
+  width: 40px;
+  background: red;
+}
+
+ul li a:hover {
+  color: red !important;
+  transition: all 0.7s;
+}
+
+.imgh {
+  transition: all 0.7s;
+}
+
+.imgh:hover {
+  transform: scale(1.1);
+  transition: all 0.7s;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(180deg);
+  }
+
+  to {
+    transform: rotate(-540deg);
+  }
+}
+
+.icon {
+  width: 65%;
+  padding: 8px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+@media (min-width: 768px) {
+  .icon {
+    width: 50%;
+  }
+}
+
+.css-1umw9bq-MuiSvgIcon-root {
+  width: 1.4rem !important;
+}
+
+.css-1umw9bq-MuiSvgIcon-root {
+  color: red;
+}
+
+
+.Galleryimg {
+  border-radius: 30px;
+  transition: filter 0.3s ease;
+}
+.Gallery-box:hover .Galleryimg-icon{
+  display: block !important;
+  transition: all 0.6s !important;
+}
+
+.Galleryimg:hover {
+  filter: blur(30px) !important;
+  border-radius: 10px!important;
+}
+
+/* .Galleryimg:hover {
+  display: block !important;
+} */
+
+/* .slick-track{
+  width: 0px !important;
+} */
+
+
+/* .slick-slide {
+      margin: 0 5px;
+      
+  } */
+
+  /* the parent */
+  /* .slick-list {
+      margin: 0 -10px;
+  } */
