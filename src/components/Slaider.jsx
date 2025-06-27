@@ -147,23 +147,42 @@ import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
 import { Box, Typography } from "@mui/material";
 
-function Resizable() {
+function Sliders() {
     const [display, setDisplay] = useState(true);
     const [width, setWidth] = useState(600);
 
 
-    const settings = {
-        dots: true,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 3,
+  const settings = {
+  dots: true,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  cssEase: "ease-in-out",
+  responsive: [
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
-        speed: 2000,
-        autoplaySpeed: 3000,
-        cssEase: "ease-in-out",
-
-    };
+        arrows: false,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 900,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: true
+      }
+    }
+   
+  ]
+};
     const key = 'INTRfBpATLpTNI5s';
     const [slides, setSlides] = useState([]);
     useEffect(() => {
@@ -250,5 +269,5 @@ function Resizable() {
     );
 }
 
-export default Resizable;
+export default Sliders;
 

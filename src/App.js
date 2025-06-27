@@ -9,6 +9,8 @@ import ScrollToTop from './components/Scrollbuteon';
 import SlickGo from './components/Slider';
 import Member from './components/Member';
 import Resizable from './components/Slaider';
+import Footers from './components/Footer';
+import About from './components/About';
 
 
 function App() {
@@ -17,12 +19,14 @@ function App() {
     {/* <ScrollToTop/> */}
     {/* <SlickGo/> */}
     {/* <Header/> */}
-    <Herosection/>
+    {/* <Herosection/> */}
     {/* <Cart/> */}
     {/* <Gallery/> */}
     {/* <SlickGoTo/> */}
-    <Member/>
+    {/* <Member/> */}
     {/* <Resizable/> */}
+    {/* <Footers/> */}
+    <About/>
     </>
   );
 }

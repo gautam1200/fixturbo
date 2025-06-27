@@ -32,6 +32,8 @@ import DoneAllIcon from '@mui/icons-material/DoneAll';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Resizable from './Slaider';
 import axios from 'axios';
+import Footers from './Footer';
+import Sliders from './Slaider';
 
 
 
@@ -233,11 +235,17 @@ function Herosection() {
                     </Box>
                     <Box
                         sx={{ width: { xs: '100%', sm: '80%', md: '45%' } }}>
-                        <span className='line'> Growth Accelerator</span>
+                        <span className='line' style={{ color: 'red' }} > Growth Accelerator</span>
                         <Typography
                             fontSize={{ xs: '34px', sm: '36px', md: '40px', lg: '54px', xl: '56px' }}
                             fontWeight="bold"
                             lineHeight="1.2"
+                            sx={{
+                                '&:hover': {
+                                    color: 'red',
+                                    transition: '0.5s',
+                                },
+                            }}
 
                         >
                             Gear Up For Great Quality Service
@@ -366,7 +374,7 @@ function Herosection() {
                         <Box sx={{
                             display: 'flex',
                             marginTop: '20px',
-                            width: { xs: '80%', sm: '50%', md: '80%', lg: '50%' },
+                            width: { xs: '80%', sm: '50%', md: '80%', lg: '65%' },
                             justifyContent: 'space-around',
                             alignItems: 'center',
                             cursor: 'pointer',
@@ -387,6 +395,10 @@ function Herosection() {
                                 <Typography sx={{
                                     fontSize: { xs: '22px', sm: '22px', md: '24px' },
                                     fontWeight: 'bold',
+                                    '&:hover': {
+                                        color: 'black',
+                                        transition: '0.5s',
+                                    },
                                 }}>(629) 555-0129</Typography>
                             </Box>
                         </Box>
@@ -427,6 +439,10 @@ function Herosection() {
                             fontWeight: '900',
                             lineHeight: '1.2',
                             fontFamily: 'math',
+                            '&:hover': {
+                                color: 'red',
+                                transition: '0.5s',
+                            }
                         }}>
                             Professional Washing & Cleaning of Your Car
                         </Typography>
@@ -471,6 +487,11 @@ function Herosection() {
                                                     lineHeight: '1.2',
                                                     fontFamily: 'math',
                                                     fontWeight: 'bold',
+                                                    color: 'black',
+                                                    '&:hover': {
+                                                        color: 'red',
+                                                        transition: '0.5s',
+                                                    },
                                                 }}>
                                                 {item.title}
                                             </Typography>
@@ -528,6 +549,10 @@ function Herosection() {
                     textAlign: 'center',
                     lineHeight: '1.2',
                     fontFamily: 'math',
+                    '&:hover': {
+                        color: 'red',
+                        transition: '0.5s',
+                    },
                 }}>
                     Featured Products
                 </Typography>
@@ -558,7 +583,9 @@ function Herosection() {
                                             display: 'flex',
                                             justifyContent: 'center',
                                             padding: '10px',
-                                            boxSizing: 'border-box'
+                                            boxSizing: 'border-box',
+                                            backgroundColor: '#d8d8d8',
+                                            borderRadius: '10px 10px 0 0',
                                         }}>
 
                                         <img src={item.image[0]} alt="" className='imgh' style={{
@@ -575,6 +602,11 @@ function Herosection() {
                                                 alignItems: 'center',
                                                 display: 'flex',
                                                 lineHeight: '1.2',
+                                                color: 'black',
+                                                '&:hover': {
+                                                    color: 'red',
+                                                    transition: '0.5s',
+                                                },
                                             }}>{item.title}</Typography>
                                         {item.stars}
                                         <Typography
@@ -598,14 +630,21 @@ function Herosection() {
                                             }}>
                                                 ${item.cutofprice}</span>
                                         </Typography>
-                                        <button
-                                            style={{
+                                        <Button
+                                            sx={{
                                                 alignItems: 'center',
                                                 fontSize: '18px',
                                                 display: 'flex',
                                                 background: 'none',
                                                 border: 'none',
-                                                margin: '5px 0',
+                                                padding: '10px 20px',
+                                                color: 'black',
+                                                marginTop: '10px',
+                                                '&:hover': {
+                                                    backgroundColor: 'red',
+                                                    color: 'white',
+                                                    transition: '0.5s',
+                                                },
                                             }}>
                                             Add to Cart
                                             <ArrowForwardIcon
@@ -613,7 +652,7 @@ function Herosection() {
                                                     verticalAlign: 'top',
                                                 }} />
 
-                                        </button>
+                                        </Button>
                                     </Box>
                                 </Box>
                             </>
@@ -667,13 +706,17 @@ function Herosection() {
                             fontSize: '18px'
 
                         }}> WHY CHOOSE US</span>
-                        <Typography
-                            fontSize={{ xs: '30px', sm: '34px', md: '38px', lg: '46px' }}
-                            fontWeight="bold"
-                            lineHeight="1.2"
-                            padding="10px 0 "
-                            fontFamily='math'
-                        >
+                        <Typography sx={{
+                            fontSize: { xs: '30px', sm: '34px', md: '38px', lg: '46px' },
+                            fontWeight: '900',
+                            lineHeight: '1.2',
+                            fontFamily: 'math',
+                            padding: '10px 0',
+                            '&:hover': {
+                                color: 'red',
+                                transition: '0.5s',
+                            }
+                        }}>
                             Our Best Advantages
                         </Typography>
                         <span>Et purus duis sollicitudin dignissim habitant. Egestas nulla quis venenatis cras sed eu massa eu faucibus. Urna fusce</span>
@@ -705,6 +748,11 @@ function Herosection() {
                                                     fontSize: { xs: '20px', sm: '18px' },
                                                     fontFamily: 'math',
                                                     color: 'black',
+                                                    fontWeight: 'bold',
+                                                    '&:hover': {
+                                                        color: 'red',
+                                                        transition: '0.5s',
+                                                    },
                                                 }}>
                                                 {item.title}
                                             </Typography>
@@ -719,13 +767,13 @@ function Herosection() {
                                 backgroundColor: 'red',
                                 padding: { xs: '10px 15px', sm: '10px 15px', lg: '15px 25px' },
                                 fontSize: '16px',
-                                border: '1px solid transparent',
+                                border: '2px solid transparent',
                                 marginRight: '15px',
                                 fontSize: { xs: '14px', sm: '16px' },
                                 "&:hover": {
-                                    backgroundColor: "black",
-                                    color: 'white',
-                                    border: '1px solid white',
+                                    backgroundColor: "white",
+                                    color: 'black',
+                                    border: '2px solid black',
                                 }
                             }}>LEARN ABOUT US</Button>
 
@@ -765,7 +813,7 @@ function Herosection() {
             }}>
                 <Box
                     sx={{
-                        width: { xs: '95%', sm: '70%', md: '65%', lg: '45%' },
+                        width: { xs: '87%', sm: '70%', md: '65%', lg: '50%' },
                         margin: 'auto',
                         textAlign: 'center',
                     }}>
@@ -776,6 +824,10 @@ function Herosection() {
                             textAlign: 'center',
                             lineHeight: '1.2',
                             fontFamily: 'math',
+                            '&:hover': {
+                                color: 'red',
+                                transition: '0.5s',
+                            },
                         }
                     }>Dependable Car Repair The Solutions</Typography>
                 </Box>
@@ -785,21 +837,20 @@ function Herosection() {
                         display: 'flex',
                         margin: 'auto',
                         flexWrap: 'wrap',
-                        justifyContent: 'space-between',
+                        justifyContent: 'center',
                         padding: '30px 0',
 
                     }}>
-                    <Box
-                        sx={{
-                            width: '35%',
-                            boxSizing: 'border-box',
-                            padding: '15px',
-                            display: 'flex',
-                            flexWrap: 'wrap',
-                            justifyContent: 'space-between',
+                    <Box sx={{
+                        width: { xs: '100%', sm: '50%', md: '35%' },
+                        boxSizing: 'border-box',
+                        padding: '15px',
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        justifyContent: 'space-between',
 
 
-                        }}>
+                    }}>
                         {
                             solutions.map((item, index) => (
                                 <>
@@ -814,6 +865,10 @@ function Herosection() {
                                                 fontFamily: 'math',
                                                 color: 'black',
                                                 fontWeight: 'bold',
+                                                '&:hover': {
+                                                    color: 'red',
+                                                    transition: '0.5s',
+                                                },
                                             }}>{item.title}
                                         </Typography>
                                         <Typography
@@ -827,21 +882,22 @@ function Herosection() {
                                     <Box
                                         sx={{
                                             width: '20%',
-                                            margin: '20px 0',
-                                        }}>
-                                        <img src={item.icon} alt=""
-                                            style={{
+                                            margin: '10px 0',
+                                            img: {
                                                 padding: '10px',
                                                 backgroundColor: '#ff34345e',
                                                 borderRadius: '50%',
                                                 margin: '0 auto',
                                                 cursor: 'pointer',
                                                 width: '75%',
+                                                transition: 'transform 0.3s ease-in-out',
                                                 '&:hover': {
-                                                    transition: '0.5s',
-                                                    transform: '5px'
-                                                }
-                                            }} />
+                                                    transform: 'scaleX(-1)',
+                                                },
+                                            },
+                                        }}
+                                    >
+                                        <img src={item.icon} alt="" />
                                     </Box>
                                 </>
                             ))
@@ -849,47 +905,50 @@ function Herosection() {
                     </Box>
 
 
-                    <Box
-                        sx={{
-                            width: '30%',
-                            boxSizing: 'border-box',
-                            padding: '15px',
-                            overflow: 'hidden',
-                            // borderRadius:'60%'
+                    <Box sx={{
+                        width: { xs: '100%', sm: '50%', md: '30%' },
+                        boxSizing: 'border-box',
+                        padding: '15px',
+                        overflow: 'hidden',
+                        // borderRadius:'60%'
 
-                        }}>
+                    }}>
                         <img src={wcu3} alt="" width={'100%'}
                             style={{
                                 borderRadius: '250px',
 
                             }} />
                     </Box>
-                    <Box
-                        sx={{
-                            width: '35%',
-                            boxSizing: 'border-box',
-                            padding: '15px',
-                            display: 'flex',
-                            flexWrap: 'wrap',
-                            justifyContent: 'space-between'
-                        }}>
+                    <Box sx={{
+                        width: { xs: '100%', sm: '70%', md: '35%' },
+                        boxSizing: 'border-box',
+                        padding: '15px',
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        justifyContent: 'space-between'
+                    }}>
                         {
-                            solutions.map((item, index) => (
+                            solution.map((item, index) => (
                                 <>
                                     <Box
                                         sx={{
                                             width: '20%',
                                             margin: '10px 0',
-                                        }}>
-                                        <img src={item.icon} alt=""
-                                            style={{
+                                            img: {
                                                 padding: '10px',
                                                 backgroundColor: '#ff34345e',
                                                 borderRadius: '50%',
                                                 margin: '0 auto',
                                                 cursor: 'pointer',
                                                 width: '75%',
-                                            }} />
+                                                transition: 'transform 0.3s ease-in-out',
+                                                '&:hover': {
+                                                    transform: 'scaleX(-1)',
+                                                },
+                                            },
+                                        }}
+                                    >
+                                        <img src={item.icon} alt="" />
                                     </Box>
                                     <Box
                                         sx={{
@@ -902,6 +961,10 @@ function Herosection() {
                                                 fontFamily: 'math',
                                                 color: 'black',
                                                 fontWeight: 'bold',
+                                                '&:hover': {
+                                                    color: 'red',
+                                                    transition: '0.5s',
+                                                },
                                             }}>{item.title}
                                         </Typography>
                                         <Typography
@@ -944,6 +1007,10 @@ function Herosection() {
                             textAlign: 'center',
                             lineHeight: '1.2',
                             fontFamily: 'math',
+                            '&:hover': {
+                                color: 'red',
+                                transition: '0.5s',
+                            }
                         }
                     }>Our Featured Gallery</Typography>
                     <Typography
@@ -991,6 +1058,7 @@ function Herosection() {
                                             display: 'none',
                                         }}
                                     />
+                                    
                                 </Box>
 
                             </>
@@ -1003,7 +1071,7 @@ function Herosection() {
             <Box
                 sx={{
                     width: '100%',
-                    padding: '50px 0',
+                    padding: '50px 0 100px 0',
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
                     background: '#e1e1e1',
@@ -1027,19 +1095,14 @@ function Herosection() {
                             fontSize: { xs: '31px', sm: '46px', md: '56px' },
                             fontWeight: 'bold',
                             textAlign: 'center',
-                            lineHeight: '1.2',
+                            lineHeight: '1.1',
                             fontFamily: 'math',
+                            '&:hover': {
+                                color: 'red',
+                                transition: '0.5s',
+                            }
                         }
-                    }>Car Repair </Typography>
-                    <Typography sx={
-                        {
-                            fontSize: { xs: '31px', sm: '46px', md: '56px' },
-                            fontWeight: 'bold',
-                            textAlign: 'center',
-                            lineHeight: '1.2',
-                            fontFamily: 'math',
-                        }
-                    }>The Best Services</Typography>
+                    }>Car Repair <br /> The Best Services</Typography>
                     <Typography
                         sx={{
                             fontSize: { xs: '14px', sm: '16px', md: '18px' }
@@ -1057,8 +1120,9 @@ function Herosection() {
                     }}>
 
                 </Box>
-<Resizable/>
+                <Sliders />
             </Box>
+            <Footers />
 
 
 
