@@ -187,8 +187,6 @@ function Resizable() {
                     width: '85%',
                     display: display ? "block" : "none", 
                     margin: 'auto', 
-                    
-                    
                 }}
             >
                 <Slider {...settings}>
