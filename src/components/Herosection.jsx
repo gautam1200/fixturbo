@@ -34,6 +34,10 @@ import Resizable from './Slaider';
 import axios from 'axios';
 import Footers from './Footer';
 import Sliders from './Slaider';
+import { Link } from 'react-router-dom';
+import Aos from 'aos';
+
+Aos.init();
 
 
 
@@ -194,6 +198,7 @@ function Herosection() {
 
         <>
             <Box
+                data-aos="zoom-in-up"
                 sx={{
                     position: 'relative',
                     height: { xs: '760px', sm: '760px', md: '550px', lg: '710px' },
@@ -235,7 +240,7 @@ function Herosection() {
                     </Box>
                     <Box
                         sx={{ width: { xs: '100%', sm: '80%', md: '45%' } }}>
-                        <span className='line' style={{ color: 'red' }} > Growth Accelerator</span>
+                        <span className='lines' style={{ color: 'red' }} > Growth Accelerator</span>
                         <Typography
                             fontSize={{ xs: '34px', sm: '36px', md: '40px', lg: '54px', xl: '56px' }}
                             fontWeight="bold"
@@ -252,22 +257,24 @@ function Herosection() {
                         </Typography>
                         <span>Vestibulum rhoncus nisl ac gravida porta. Mauris eu sapien lacus</span>
                         <Box margin={'30px 0'}>
-                            <Button
-                                sx={{
-                                    color: 'white',
-                                    backgroundColor: 'red',
-                                    padding: { xs: '10px 15px', sm: '10px 15px', lg: '15px 25px' },
-                                    fontSize: '16px',
-                                    border: '1px solid transparent',
-                                    marginRight: '15px',
-                                    fontSize: { xs: '14px', sm: '16px' },
-                                    "&:hover": {
-                                        backgroundColor: "white",
-                                        color: 'black',
-                                        border: '1px solid white',
-                                    }
+                            <Link to="/about" style={{ textDecoration: 'none' }}>
+                                <Button
+                                    sx={{
+                                        color: 'white',
+                                        backgroundColor: 'red',
+                                        padding: { xs: '10px 15px', sm: '10px 15px', lg: '15px 25px' },
+                                        fontSize: '16px',
+                                        border: '1px solid transparent',
+                                        marginRight: '15px',
+                                        fontSize: { xs: '14px', sm: '16px' },
+                                        "&:hover": {
+                                            backgroundColor: "white",
+                                            color: 'black',
+                                            border: '1px solid white',
+                                        }
 
-                                }}>LEARN ABOUT US</Button>
+                                    }}>LEARN ABOUT US</Button>
+                            </Link>
                             <Button
                                 sx={{
                                     color: 'white',
@@ -287,6 +294,7 @@ function Herosection() {
                 </Box >
             </Box>
             <Box
+                data-aos="zoom-in-up"
                 sx={{
                     width: '85%',
                     display: 'flex',
@@ -419,6 +427,7 @@ function Herosection() {
             </Box>
             <Box padding={'90px 0 30px 0'}>
                 <Box
+                    data-aos="zoom-in-up"
                     sx={{
                         width: '85%',
                         display: 'flex',
@@ -434,16 +443,17 @@ function Herosection() {
                         padding: { xs: '0', sm: '20px' },
                         boxSizing: 'border-box'
                     }}>
-                        <Typography sx={{
-                            fontSize: { xs: '28px', sm: '36px', md: '40px' },
-                            fontWeight: '900',
-                            lineHeight: '1.2',
-                            fontFamily: 'math',
-                            '&:hover': {
-                                color: 'red',
-                                transition: '0.5s',
-                            }
-                        }}>
+                        <Typography
+                            sx={{
+                                fontSize: { xs: '28px', sm: '36px', md: '40px' },
+                                fontWeight: '900',
+                                lineHeight: '1.2',
+                                fontFamily: 'math',
+                                '&:hover': {
+                                    color: 'red',
+                                    transition: '0.5s',
+                                }
+                            }}>
                             Professional Washing & Cleaning of Your Car
                         </Typography>
                         <Typography
@@ -469,32 +479,40 @@ function Herosection() {
                                     <>
                                         <Box sx={{
                                             width: '20%',
-                                            margin: '10px 0'
+                                            margin: '10px 0',
                                         }}>
-
-
-                                            <img className="icon" src={item.iconClass} alt="" />
+                                            <img className="icon" src={item.iconClass} alt=""
+                                                style={{
+                                                    padding: '10px',
+                                                    backgroundColor: 'red',
+                                                    borderRadius: '50%',
+                                                    cursor: 'pointer',
+                                                }} />
 
                                         </Box>
                                         <Box sx={{
                                             width: '80%',
                                             margin: '10px 0'
                                         }}>
-                                            <Typography
-                                                sx={{
-                                                    fontSize: { xs: '18px', sm: '18px', md: '26px' },
-                                                    // margin: '5px 0',
-                                                    lineHeight: '1.2',
-                                                    fontFamily: 'math',
-                                                    fontWeight: 'bold',
-                                                    color: 'black',
-                                                    '&:hover': {
-                                                        color: 'red',
-                                                        transition: '0.5s',
-                                                    },
-                                                }}>
-                                                {item.title}
-                                            </Typography>
+                                            <Link to="/about" style={{ color: 'black', textDecoration: 'none' }}>
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: { xs: '18px', sm: '18px', md: '26px' },
+                                                        // margin: '5px 0',
+                                                        lineHeight: '1.2',
+                                                        fontFamily: 'math',
+                                                        fontWeight: 'bold',
+                                                        color: 'black',
+
+                                                        '&:hover': {
+                                                            color: 'red',
+                                                            transition: '0.5s',
+                                                        },
+                                                    }}>
+
+                                                    {item.title}
+                                                </Typography>
+                                            </Link>
                                             <Typography
                                                 sx={{
                                                     fontSize: { xs: '16px', sm: '16px', md: '18px' },
@@ -537,23 +555,27 @@ function Herosection() {
                 </Box>
             </Box>
 
-            <Box sx={{
-                width: '100%',
-                padding: '50px 0',
-                background: '#e1e1e1',
+            <Box
+                data-aos="zoom-in-up"
+                sx={{
+                    width: '100%',
+                    padding: '50px 0',
+                    background: '#e1e1e1',
 
-            }}>
-                <Typography sx={{
-                    fontSize: { xs: '34px', sm: '46px', md: '56px' },
-                    fontWeight: 'bold',
-                    textAlign: 'center',
-                    lineHeight: '1.2',
-                    fontFamily: 'math',
-                    '&:hover': {
-                        color: 'red',
-                        transition: '0.5s',
-                    },
                 }}>
+                <Typography
+                    // data-aos="fade-up"
+                    sx={{
+                        fontSize: { xs: '34px', sm: '46px', md: '56px' },
+                        fontWeight: 'bold',
+                        textAlign: 'center',
+                        lineHeight: '1.2',
+                        fontFamily: 'math',
+                        '&:hover': {
+                            color: 'red',
+                            transition: '0.5s',
+                        },
+                    }}>
                     Featured Products
                 </Typography>
 
@@ -661,11 +683,13 @@ function Herosection() {
                 </Box>
             </Box>
 
-            <Box sx={{
-                width: '100%',
-                padding: '50px 0',
-            }}>
+            <Box
+                sx={{
+                    width: '100%',
+                    padding: '50px 0',
+                }}>
                 <Box
+                    data-aos="zoom-in-up"
                     sx={{
                         width: '85%',
                         display: 'flex',
@@ -806,12 +830,15 @@ function Herosection() {
                 </Box>
             </Box>
 
-            <Box sx={{
-                width: '100%',
-                padding: '50px 0',
-                background: '#e1e1e1',
-            }}>
+            <Box
+                data-aos="zoom-in-up"
+                sx={{
+                    width: '100%',
+                    padding: '50px 0',
+                    background: '#e1e1e1',
+                }}>
                 <Box
+                    data-aos="fade-up"
                     sx={{
                         width: { xs: '87%', sm: '70%', md: '65%', lg: '50%' },
                         margin: 'auto',
@@ -832,6 +859,8 @@ function Herosection() {
                     }>Dependable Car Repair The Solutions</Typography>
                 </Box>
                 <Box
+                    data-aos="fade-up"
+
                     sx={{
                         width: '85%',
                         display: 'flex',
@@ -983,12 +1012,14 @@ function Herosection() {
             </Box>
 
 
-            <Box sx={{
-                width: '100%',
-                padding: '50px 0',
+            <Box
+                sx={{
+                    width: '100%',
+                    padding: '50px 0',
 
-            }}>
+                }}>
                 <Box
+                    data-aos="zoom-in-up"
                     sx={{
                         width: { xs: '80%', sm: '80%', md: '60%', lg: '50%' },
                         margin: 'auto',
@@ -1019,6 +1050,7 @@ function Herosection() {
                         }}>Our technicians are ASE-certified, each service is documented in a digital record for transparency, and we rotate key maintenance tasks to prevent unexpected failures.</Typography>
                 </Box>
                 <Box
+                    data-aos="zoom-in-up"
                     sx={{
                         width: '85%',
                         display: 'flex',
@@ -1058,7 +1090,7 @@ function Herosection() {
                                             display: 'none',
                                         }}
                                     />
-                                    
+
                                 </Box>
 
                             </>
@@ -1079,6 +1111,7 @@ function Herosection() {
                 }}
             >
                 <Box
+                    data-aos="zoom-in-up"
                     sx={{
                         width: { xs: '80%', sm: '80%', md: '60%', lg: '50%' },
                         margin: 'auto',
@@ -1109,6 +1142,7 @@ function Herosection() {
                         }}>A car repair is a service provided to fix any issues or a damages with your vehicle. It a involves diagnosing the problem, repairing or replacing</Typography>
                 </Box>
                 <Box
+                    data-aos="zoom-in-up"
                     sx={{
                         width: '85%',
                         display: 'flex',
@@ -1122,7 +1156,10 @@ function Herosection() {
                 </Box>
                 <Sliders />
             </Box>
+            <Box
+            data-aos="zoom-in-up">
             <Footers />
+            </Box>
 
 
 

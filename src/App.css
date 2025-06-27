@@ -15,7 +15,12 @@ body {
   color: aqua !important;
 }
 
-.line::before {
+
+.header-link:hover {
+  color: red !important;
+  transition: all 0.7s;
+}
+.lines::before {
   content: "";
   display: inline-block;
   height: 2px;
