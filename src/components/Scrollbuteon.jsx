@@ -28,7 +28,7 @@ export default function ScrollToTop() {
         display: scrollVisible ? "flex" : "none",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "rgba(25, 0, 255, 0.22)",
+        backgroundColor: "rgba(255, 0, 0, 0.22)",
         borderRadius: "50%",
         width: "48px",
         height: "48px",

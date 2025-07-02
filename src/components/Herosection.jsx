@@ -36,6 +36,7 @@ import Footers from './Footer';
 import Sliders from './Slaider';
 import { Link } from 'react-router-dom';
 import Aos from 'aos';
+import ScrollToTop from './Scrollbuteon';
 
 Aos.init();
 
@@ -197,6 +198,19 @@ function Herosection() {
     return (
 
         <>
+            <ScrollToTop />
+            <Box
+                sx={{
+                    position: 'fixed',
+                    top: '0',
+                    left: '0',
+                    width: '100%',
+                    zIndex: 99,
+                }}>
+
+                <Header />
+            </Box>
+
             <Box
                 data-aos="zoom-in-up"
                 sx={{
@@ -206,17 +220,6 @@ function Herosection() {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}>
-                <Box
-                    sx={{
-                        position: 'fixed',
-                        top: '0',
-                        left: '0',
-                        width: '100%',
-                        zIndex: 99,
-                    }}>
-
-                    <Header />
-                </Box>
                 <Box
                     sx={{
                         width: '85%',
@@ -293,6 +296,7 @@ function Herosection() {
                     </Box>
                 </Box >
             </Box>
+
             <Box
                 data-aos="zoom-in-up"
                 sx={{
@@ -425,6 +429,7 @@ function Herosection() {
                     />
                 </Box>
             </Box>
+
             <Box padding={'90px 0 30px 0'}>
                 <Box
                     data-aos="zoom-in-up"
@@ -785,7 +790,8 @@ function Herosection() {
                                 ))
                             }
                         </Box>
-                        <Button
+                        <Link to="/services" style={{ color: 'black', textDecoration: 'none' }}>
+                        <Button 
                             sx={{
                                 color: 'white',
                                 backgroundColor: 'red',
@@ -800,6 +806,7 @@ function Herosection() {
                                     border: '2px solid black',
                                 }
                             }}>LEARN ABOUT US</Button>
+                        </Link>
 
                     </Box>
                     <Box
@@ -1157,8 +1164,8 @@ function Herosection() {
                 <Sliders />
             </Box>
             <Box
-            data-aos="zoom-in-up">
-            <Footers />
+                data-aos="zoom-in-up">
+                <Footers />
             </Box>
 
 

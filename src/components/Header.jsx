@@ -5,7 +5,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import logo from '../Images/logo-white.svg';
 import { Link } from "react-router-dom";
 
-const navItems = ["Home", "About", "Contact", "Services", "Projects", "Blog"];
+
+const navItems = ["Home", "About", "Services", "Projects", "Contact"];
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -14,14 +15,28 @@ const Header = () => {
   const handleDrawerToggle = () => setMobileOpen(prev => !prev);
 
   useEffect(() => {
-    const handleScroll = () => setScroll(window.scrollY > 100);
+    const handleScroll = () => {
+      const offset = window.scrollY
+      setScroll(offset > 100);
+    }
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <>
-      <Box sx={{ backgroundColor: scroll ? "#000" : "transparent", height: "80px" }}>
+      <Box
+        sx={{
+          backgroundColor: scroll ? "#000" : "transparent",
+          transition: "background-color 0.3s ease",
+          // backgroundColor: "#000",
+          height: "80px",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1000,
+        }}>
         <Box width="85%" mx="auto" display="flex" alignItems="center" justifyContent="space-between" height="100%">
           <Box><img src={logo} alt="Logo" /></Box>
 

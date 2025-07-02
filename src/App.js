@@ -55,6 +55,8 @@ import './App.css';
 // Import page components
 import Home from "../src/components/Herosection";
  import About from './components/About';
+import Services from "./components/Services";
+import Contact from "./components/Contact";
 // import Contact from "./pages/Contact";
 // import Services from "./pages/Services";
 // import Projects from "./pages/Projects";
@@ -67,10 +69,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        {/* <Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/blog" element={<Blog />} /> */}
+        {/* <Route path="/projects" element={<Projects />} /> */}
+        {/* <Route path="/blog" element={<Blog />} /> */}
 
         {/* Redirect old paths, optional */}
         <Route path="/home" element={<Navigate to="/" replace />} />
