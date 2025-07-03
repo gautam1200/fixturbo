@@ -1,167 +1,221 @@
-import { Box, Typography } from '@mui/material';
-import axios from 'axios';
-import { Field, Form, Formik } from 'formik';
-import React, { useEffect, useState } from 'react';
-
+ import { Box, Button, CircularProgress, InputLabel, TextField, Typography } from '@mui/material';
+ import axios from 'axios';
+ import { Field, Form, Formik } from 'formik';
+ import React, { useEffect, useState } from 'react';                                    
+                    
 function Cart() {
     const initialValues = {
-        title: '',
-        price: '',
-        cutofprice: '',
-        rating: '',
-        ratingcount: '',
-        discription: '',
-        sku: '',
-        category: '',
-        tags: '',
-        image: [],  // initialize as array
-    };
+    title: '',
+    price: '',
+    cutofprice: '',
+    rating: '',
+    ratingcount: '',
+    discription: '',
+    sku: '',
+    category: '',
+    tags: '',
+    image: [],
+};
 
-    const key = 'NpBEIMw8WujB8YXy';
-
-    const [data, setdata] = useState([])
-
-    const Products = () => {
-        axios.get('https://generateapi.onrender.com/api/cart', {
-            headers: {
-                Authorization: key,
-            }
+const key = 'NpBEIMw8WujB8YXy';
+  const [data, setData] = useState([]);
+  
+  const fetchProducts = () => {
+      axios.get('https://generateapi.onrender.com/api/cart', {
+          headers: { Authorization: key },
         })
-            .then((res) => {
-                console.log("hyy");
-                setdata(res.data.Data)
-
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }
+        .then((res) => setData(res.data.Data))
+        .catch((error) => console.error(error));
+    };
+    
     useEffect(() => {
-        Products()
-    }, [])
+        fetchProducts();
+    }, []);
+    
 
-    const handleSubmit = (values, { resetForm }) => {
-        const formData = new FormData();
-        formData.append('title', values.title);
-        formData.append('price', values.price);
-        formData.append('cutofprice', values.cutofprice);
-        formData.append('rating', values.rating);
-        formData.append('ratingcount', values.ratingcount);
-        formData.append('discription', values.discription);
-        formData.append('sku', values.sku);
-        formData.append('category', values.category);
-        formData.append('tags', values.tags);
+  const handleSubmit = (values, { resetForm, setSubmitting }) => {
+    const formData = new FormData();
+    Object.entries(values).forEach(([key, value]) => {
+      if (key !== 'image') {
+        formData.append(key, value);
+      }
+    });
+    values.image.forEach((img) => formData.append('image', img));
 
-        values.image.forEach((img) => {
-            formData.append('image', img);
-        });
+    axios.post('https://generateapi.onrender.com/api/cart', formData, {
+      headers: {
+        Authorization: key,
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    .then(() => {
+      fetchProducts();
+      resetForm();
+    })
+    .catch((error) => console.error('Upload error:', error))
+    .finally(() => setSubmitting(false));
+  };
 
-        axios
-            .post('https://generateapi.onrender.com/api/cart', formData, {
-                headers: {
-                    Authorization: key,
-                    'Content-Type': 'multipart/form-data',
-                },
-            })
-            .then((response) => {
-                console.log('Success:', response.data);
-                Products()
-                resetForm();
-            })
-            .catch((error) => {
-                console.error('Upload error:', error);
-            });
-    };
-        const deletdata = (id) => {
-        axios.delete(`https://generateapi.onrender.com/api/cart/${id}`, {
-            headers: {
-                Authorization: key,
-                'Content-Type': 'multipart/form-data'
-            },
-        })
-            .then((res) => {
-                console.log("hello");
-                Products()
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }
+  const handleDelete = (id) => {
+    axios.delete(`https://generateapi.onrender.com/api/cart/${id}`, {
+      headers: {
+        Authorization: key,
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    .then(() => fetchProducts())
+    .catch((error) => console.error(error));
+  };
 
+  return (
+    <>
+      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+        {({ setFieldValue, isSubmitting, errors, touched }) => (
+          <Form encType="multipart/form-data">
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+              <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
+                <Box sx={{ flex: 1 }}>
+                  <Field
+                    as={TextField}
+                    name="title"
+                    label="Product Title"
+                    fullWidth
+                    error={touched.title && Boolean(errors.title)}
+                    helperText={touched.title && errors.title}
+                  />
+                </Box>
+                <Box sx={{ flex: 1 }}>
+                  <Field
+                    as={TextField}
+                    name="price"
+                    label="Price"
+                    type="number"
+                    fullWidth
+                    error={touched.price && Boolean(errors.price)}
+                    helperText={touched.price && errors.price}
+                  />
+                </Box>
+              </Box>
+              <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
+                <Box sx={{ flex: 1 }}>
+                  <Field
+                    as={TextField}
+                    name="cutofprice"
+                    label="Cut-off Price"
+                    type="number"
+                    fullWidth
+                    error={touched.cutofprice && Boolean(errors.cutofprice)}
+                    helperText={touched.cutofprice && errors.cutofprice}
+                  />
+                </Box>
+                <Box sx={{ flex: 1 }}>
+                  <Field
+                    as={TextField}
+                    name="rating"
+                    label="Rating"
+                    type="number"
+                    fullWidth
+                    error={touched.rating && Boolean(errors.rating)}
+                    helperText={touched.rating && errors.rating}
+                  />
+                </Box>
+              </Box>
+              <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
+                <Box sx={{ flex: 1 }}>
+                  <Field
+                    as={TextField}
+                    name="ratingcount"
+                    label="Rating Count"
+                    type="number"
+                    fullWidth
+                    error={touched.ratingcount && Boolean(errors.ratingcount)}
+                    helperText={touched.ratingcount && errors.ratingcount}
+                  />
+                </Box>
+                <Box sx={{ flex: 1 }}>
+                  <Field
+                    as={TextField}
+                    name="description"
+                    label="Description"
+                    fullWidth
+                    error={touched.description && Boolean(errors.description)}
+                    helperText={touched.description && errors.description}
+                  />
+                </Box>
+              </Box>
+              <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
+                <Box sx={{ flex: 1 }}>
+                  <Field
+                    as={TextField}
+                    name="sku"
+                    label="SKU"
+                    fullWidth
+                    error={touched.sku && Boolean(errors.sku)}
+                    helperText={touched.sku && errors.sku}
+                  />
+                </Box>
+                <Box sx={{ flex: 1 }}>
+                  <Field
+                    as={TextField}
+                    name="category"
+                    label="Category"
+                    fullWidth
+                    error={touched.category && Boolean(errors.category)}
+                    helperText={touched.category && errors.category}
+                  />
+                </Box>
+              </Box>
+              <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
+                <Box sx={{ flex: 2 }}>
+                  <Field
+                    as={TextField}
+                    name="tags"
+                    label="Tags"
+                    fullWidth
+                    error={touched.tags && Boolean(errors.tags)}
+                    helperText={touched.tags && errors.tags}
+                  />
+                </Box>
+                <Box sx={{ flex: 1 }}>
+                  <InputLabel htmlFor="image">Product Images</InputLabel>
+                  <input
+                    id="image"
+                    name="image"
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    onChange={(e) => setFieldValue('image', e.currentTarget.files)}
+                    />
+                    </Box>
+                </Box>
+              <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? <CircularProgress size={24} /> : 'Submit'}
+                </Button>
+              </Box>
+            </Box>
+          </Form>
+        )}
+      </Formik>
 
-    return (
-        <>
-            <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-                {({ setFieldValue }) => (
-                    <Form encType="multipart/form-data">
-                        <Field name="title" type="text" placeholder="Title"  />
-                        <Field name="price" type="number" placeholder="Price" />
-                        <Field name="cutofprice" type="number" placeholder="Cut-off Price" />
-                        <Field name="rating" type="number" placeholder="Rating" />
-                        <Field name="ratingcount" type="number" placeholder="Rating Count" />
-                        <Field name="discription" type="text" placeholder="Description" />
-                        <Field name="sku" type="text" placeholder="SKU" />
-                        <Field name="category" type="text" placeholder="Category" />
-                        <Field name="tags" type="text" placeholder="Tags" />
-
-                        <input
-                            name="image"
-                            type="file"
-                            multiple
-                            onChange={(e) => {
-                                const files = Array.from(e.currentTarget.files);
-                                setFieldValue('image', files);
-                            }}
-                        />
-
-                        <button type="submit">Submit</button>
-                        
-                    </Form>
-                )}
-            </Formik>
-
-            <Box sx={{
+      
+            {/* <Box sx={{
                 width: '100%',
             }}>
-
                 {
                     data.map((a, index) => (
                         <>
                                     <button onClick={() => deletdata(a._id)}>Delete{index+1}</button>  
                         </>
                     ))}
-
-            </Box >
+            </Box > */}
         </>
     );
 }
 
 export default Cart;
-
-
-
-
-{/* {/* // NpBEIMw8WujB8YXy
-
-
-// POST : https://generateapi.onrender.com/api/cart
-// GET : https://generateapi.onrender.com/api/cart
-// DELETE : https://generateapi.onrender.com/api/cart/:id
-// PATCH : https://generateapi.onrender.com/api/cart/:id
-
-
-// 
-
-//     "title": "Sample Text",
-//     "price": 13390,
-//     "cutofprice": 14037,
-//     "rating": 38236,
-//     "ratingcount": 94240,
-//     "discription": "Sample Text",
-//     "sku": "Sample Text",
-//     "category": "Sample Text",
-//     "tags": "Sample Text",
-//     "image": [
-//         "image_1_x1f7kp.png"
-//     ]
-// } */}

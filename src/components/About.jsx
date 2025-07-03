@@ -568,62 +568,7 @@ function About() {
 
         </Box>
       </Box >
-      <Box
-        sx={{
-          width: '100%',
-          padding: '50px 0 100px 0',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          background: '#e1e1e1',
-
-        }}
-      >
-        <Box
-          data-aos="zoom-in-up"
-          sx={{
-            width: { xs: '80%', sm: '80%', md: '60%', lg: '50%' },
-            margin: 'auto',
-            textAlign: 'center',
-          }}>
-          <span className='line'
-            style={{
-              color: 'red',
-              textAlign: 'center',
-              fontSize: '18px'
-            }}> Team Member </span>
-          <Typography sx={
-            {
-              fontSize: { xs: '31px', sm: '46px', md: '56px' },
-              fontWeight: 'bold',
-              textAlign: 'center',
-              lineHeight: '1.1',
-              fontFamily: 'math',
-              '&:hover': {
-                color: 'red',
-                transition: '0.5s',
-              }
-            }
-          }>Car Repair <br /> The Best Services</Typography>
-          <Typography
-            sx={{
-              fontSize: { xs: '14px', sm: '16px', md: '18px' }
-            }}>A car repair is a service provided to fix any issues or a damages with your vehicle. It a involves diagnosing the problem, repairing or replacing</Typography>
-        </Box>
-        <Box
-          data-aos="zoom-in-up"
-          sx={{
-            width: '85%',
-            display: 'flex',
-            margin: 'auto',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            padding: '30px 0',
-            rowGap: '15px',
-          }}>
-
-        </Box>
-        <Sliders />
-      </Box>
+     
 
 
       <Box

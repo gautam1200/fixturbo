@@ -4,9 +4,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import logo from '../Images/logo-white.svg';
 import { Link } from "react-router-dom";
+import ResponsiveDrawer from "./Addmin";
 
 
-const navItems = ["Home", "About", "Services", "Projects", "Contact"];
+const navItems = ["Home", "About", "Services", "Product", "Contact"];
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -25,6 +26,7 @@ const Header = () => {
 
   return (
     <>
+    {/* <ResponsiveDrawer /> */}
       <Box
         sx={{
           backgroundColor: scroll ? "#000" : "transparent",

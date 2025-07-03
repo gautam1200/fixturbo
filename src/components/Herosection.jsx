@@ -204,7 +204,7 @@ function Herosection() {
                     position: 'fixed',
                     top: '0',
                     left: '0',
-                    width: '100%',
+                    width: '1240px',
                     zIndex: 99,
                 }}>
 
@@ -215,10 +215,17 @@ function Herosection() {
                 data-aos="zoom-in-up"
                 sx={{
                     position: 'relative',
-                    height: { xs: '760px', sm: '760px', md: '550px', lg: '710px' },
+                    height: {
+                        xs: '760px',
+                        sm: '760px',
+                        md: '550px',
+                        lg: '710px',
+                        
+                    },
                     backgroundImage: `url(${heroImage})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
+                    width: '100%',
                 }}>
                 <Box
                     sx={{
@@ -594,7 +601,7 @@ function Herosection() {
                     padding: '30px 0',
                 }}>
                     {
-                        data.map((item, index) => (
+                        data.slice(0,4).map((item, index) => (
                             <>
                                 <Box
                                     sx={{
@@ -657,6 +664,7 @@ function Herosection() {
                                             }}>
                                                 ${item.cutofprice}</span>
                                         </Typography>
+                                        <Link to="/product" style={{ color: 'black', textDecoration: 'none' }}>
                                         <Button
                                             sx={{
                                                 alignItems: 'center',
@@ -673,13 +681,14 @@ function Herosection() {
                                                     transition: '0.5s',
                                                 },
                                             }}>
-                                            Add to Cart
+                                            More Product
                                             <ArrowForwardIcon
                                                 sx={{
                                                     verticalAlign: 'top',
                                                 }} />
 
                                         </Button>
+                                        </Link>
                                     </Box>
                                 </Box>
                             </>
@@ -791,21 +800,21 @@ function Herosection() {
                             }
                         </Box>
                         <Link to="/services" style={{ color: 'black', textDecoration: 'none' }}>
-                        <Button 
-                            sx={{
-                                color: 'white',
-                                backgroundColor: 'red',
-                                padding: { xs: '10px 15px', sm: '10px 15px', lg: '15px 25px' },
-                                fontSize: '16px',
-                                border: '2px solid transparent',
-                                marginRight: '15px',
-                                fontSize: { xs: '14px', sm: '16px' },
-                                "&:hover": {
-                                    backgroundColor: "white",
-                                    color: 'black',
-                                    border: '2px solid black',
-                                }
-                            }}>LEARN ABOUT US</Button>
+                            <Button
+                                sx={{
+                                    color: 'white',
+                                    backgroundColor: 'red',
+                                    padding: { xs: '10px 15px', sm: '10px 15px', lg: '15px 25px' },
+                                    fontSize: '16px',
+                                    border: '2px solid transparent',
+                                    marginRight: '15px',
+                                    fontSize: { xs: '14px', sm: '16px' },
+                                    "&:hover": {
+                                        backgroundColor: "white",
+                                        color: 'black',
+                                        border: '2px solid black',
+                                    }
+                                }}>LEARN ABOUT US</Button>
                         </Link>
 
                     </Box>
@@ -1107,62 +1116,7 @@ function Herosection() {
 
             </Box>
 
-            <Box
-                sx={{
-                    width: '100%',
-                    padding: '50px 0 100px 0',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
-                    background: '#e1e1e1',
-
-                }}
-            >
-                <Box
-                    data-aos="zoom-in-up"
-                    sx={{
-                        width: { xs: '80%', sm: '80%', md: '60%', lg: '50%' },
-                        margin: 'auto',
-                        textAlign: 'center',
-                    }}>
-                    <span className='line'
-                        style={{
-                            color: 'red',
-                            textAlign: 'center',
-                            fontSize: '18px'
-                        }}> Team Member </span>
-                    <Typography sx={
-                        {
-                            fontSize: { xs: '31px', sm: '46px', md: '56px' },
-                            fontWeight: 'bold',
-                            textAlign: 'center',
-                            lineHeight: '1.1',
-                            fontFamily: 'math',
-                            '&:hover': {
-                                color: 'red',
-                                transition: '0.5s',
-                            }
-                        }
-                    }>Car Repair <br /> The Best Services</Typography>
-                    <Typography
-                        sx={{
-                            fontSize: { xs: '14px', sm: '16px', md: '18px' }
-                        }}>A car repair is a service provided to fix any issues or a damages with your vehicle. It a involves diagnosing the problem, repairing or replacing</Typography>
-                </Box>
-                <Box
-                    data-aos="zoom-in-up"
-                    sx={{
-                        width: '85%',
-                        display: 'flex',
-                        margin: 'auto',
-                        flexWrap: 'wrap',
-                        justifyContent: 'space-between',
-                        padding: '30px 0',
-                        rowGap: '15px',
-                    }}>
-
-                </Box>
-                <Sliders />
-            </Box>
+            
             <Box
                 data-aos="zoom-in-up">
                 <Footers />

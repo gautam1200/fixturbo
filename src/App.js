@@ -57,6 +57,9 @@ import Home from "../src/components/Herosection";
  import About from './components/About';
 import Services from "./components/Services";
 import Contact from "./components/Contact";
+import Product from "./components/Product";
+import ResponsiveDrawer from "./components/Addmin";
+import Productditels from "./components/Productditels";
 // import Contact from "./pages/Contact";
 // import Services from "./pages/Services";
 // import Projects from "./pages/Projects";
@@ -66,20 +69,28 @@ function App() {
   return (
     <>
       {/* <Header /> */}
+
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
-        {/* <Route path="/projects" element={<Projects />} /> */}
-        {/* <Route path="/blog" element={<Blog />} /> */}
+        <Route path='/product' element={<Product/>} />
+        <Route path = '/product/:id' element={<Productditels/>} />
 
+
+        {/* <Route path="/pro" element={<Product />} /> */}
+        {/* <Route path="/blog" element={<Blog />} /> */}
         {/* Redirect old paths, optional */}
+        
         <Route path="/home" element={<Navigate to="/" replace />} />
 
         {/* 404 fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+
+      {/* <ResponsiveDrawer /> */}
     </>
   );
 }

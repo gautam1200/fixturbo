@@ -8,6 +8,7 @@ import footer from '../Images/footer-bg2-1.png'
 import logo from '../Images/logo-white.svg'
 import ll1 from '../Images/Ll1.svg'
 import CloseIcon from '@mui/icons-material/Close';
+import Sliders from './Slaider';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -48,7 +49,62 @@ function Footers() {
 
     return (
         <>
+            <Box
+                sx={{
+                    width: '100%',
+                    padding: '50px 0 100px 0',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover',
+                    background: '#e1e1e1',
 
+                }}
+            >
+                <Box
+                    data-aos="zoom-in-up"
+                    sx={{
+                        width: { xs: '80%', sm: '80%', md: '60%', lg: '50%' },
+                        margin: 'auto',
+                        textAlign: 'center',
+                    }}>
+                    <span className='line'
+                        style={{
+                            color: 'red',
+                            textAlign: 'center',
+                            fontSize: '18px'
+                        }}> Team Member </span>
+                    <Typography sx={
+                        {
+                            fontSize: { xs: '31px', sm: '46px', md: '56px' },
+                            fontWeight: 'bold',
+                            textAlign: 'center',
+                            lineHeight: '1.1',
+                            fontFamily: 'math',
+                            '&:hover': {
+                                color: 'red',
+                                transition: '0.5s',
+                            }
+                        }
+                    }>Car Repair <br /> The Best Services</Typography>
+                    <Typography
+                        sx={{
+                            fontSize: { xs: '14px', sm: '16px', md: '18px' }
+                        }}>A car repair is a service provided to fix any issues or a damages with your vehicle. It a involves diagnosing the problem, repairing or replacing</Typography>
+                </Box>
+                <Box
+                    data-aos="zoom-in-up"
+                    sx={{
+                        width: '85%',
+                        display: 'flex',
+                        margin: 'auto',
+                        flexWrap: 'wrap',
+                        justifyContent: 'space-between',
+                        padding: '30px 0',
+                        rowGap: '15px',
+                    }}>
+
+                </Box>
+                <Sliders />
+            </Box>
             {/* ===============**************==================== */}
             <Box
                 className="w-100"
@@ -58,14 +114,14 @@ function Footers() {
                     padding: '50px 0',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    backgroundColor:'#000000eb',
+                    backgroundColor: '#000000eb',
                 }}
             >
                 <Box
-                sx={{
-                    width:'85%',
-                    margin: 'auto',
-                }}>
+                    sx={{
+                        width: '85%',
+                        margin: 'auto',
+                    }}>
 
 
                     <Box className="main" display={'flex'}>
@@ -78,7 +134,7 @@ function Footers() {
                             justifyContent="end"
                             alignItems="center"
                             color="red"
-                            
+
 
                         >
                             <InstagramIcon sx={iconStyle} />
@@ -109,10 +165,10 @@ function Footers() {
                                 Contact US
                             </Typography>
                             <Typography fontSize={'20px'} fontFamily={'monospace'} fontWeight={'600'} color='#ffffffb3'>
-                               (+888) 123 456 765
+                                (+888) 123 456 765
                             </Typography>
                             <Typography fontFamily={'emoji'} fontSize={'20px'} padding={'10px 0'}>
-                               Old city Street,USA  <br /> 1212 New york-3500
+                                Old city Street,USA  <br /> 1212 New york-3500
                             </Typography>
                             <Typography fontFamily={'emoji'} fontSize={'20px'} padding={'10px 0'}>
                                 fixturbo@mail.com
