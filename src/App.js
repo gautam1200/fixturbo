@@ -71,26 +71,17 @@ function App() {
       {/* <Header /> */}
 
 
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
         <Route path='/product' element={<Product/>} />
         <Route path = '/product/:id' element={<Productditels/>} />
+      
+      </Routes> */}
 
-
-        {/* <Route path="/pro" element={<Product />} /> */}
-        {/* <Route path="/blog" element={<Blog />} /> */}
-        {/* Redirect old paths, optional */}
-        
-        <Route path="/home" element={<Navigate to="/" replace />} />
-
-        {/* 404 fallback */}
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-
-      {/* <ResponsiveDrawer /> */}
+      <ResponsiveDrawer />
     </>
   );
 }

@@ -220,7 +220,7 @@ function Herosection() {
                         sm: '760px',
                         md: '550px',
                         lg: '710px',
-                        
+
                     },
                     backgroundImage: `url(${heroImage})`,
                     backgroundSize: 'cover',
@@ -601,7 +601,7 @@ function Herosection() {
                     padding: '30px 0',
                 }}>
                     {
-                        data.slice(0,4).map((item, index) => (
+                        data.slice(0, 4).map((item, index) => (
                             <>
                                 <Box
                                     sx={{
@@ -665,29 +665,29 @@ function Herosection() {
                                                 ${item.cutofprice}</span>
                                         </Typography>
                                         <Link to="/product" style={{ color: 'black', textDecoration: 'none' }}>
-                                        <Button
-                                            sx={{
-                                                alignItems: 'center',
-                                                fontSize: '18px',
-                                                display: 'flex',
-                                                background: 'none',
-                                                border: 'none',
-                                                padding: '10px 20px',
-                                                color: 'black',
-                                                marginTop: '10px',
-                                                '&:hover': {
-                                                    backgroundColor: 'red',
-                                                    color: 'white',
-                                                    transition: '0.5s',
-                                                },
-                                            }}>
-                                            More Product
-                                            <ArrowForwardIcon
+                                            <Button
                                                 sx={{
-                                                    verticalAlign: 'top',
-                                                }} />
+                                                    alignItems: 'center',
+                                                    fontSize: '18px',
+                                                    display: 'flex',
+                                                    background: 'none',
+                                                    border: 'none',
+                                                    padding: '10px 20px',
+                                                    color: 'black',
+                                                    marginTop: '10px',
+                                                    '&:hover': {
+                                                        backgroundColor: 'red',
+                                                        color: 'white',
+                                                        transition: '0.5s',
+                                                    },
+                                                }}>
+                                                More Product
+                                                <ArrowForwardIcon
+                                                    sx={{
+                                                        verticalAlign: 'top',
+                                                    }} />
 
-                                        </Button>
+                                            </Button>
                                         </Link>
                                     </Box>
                                 </Box>
@@ -904,18 +904,23 @@ function Herosection() {
                                             width: '75%',
                                             margin: '20px 0',
                                         }}>
-                                        <Typography
-                                            sx={{
-                                                fontSize: '24px',
-                                                fontFamily: 'math',
-                                                color: 'black',
-                                                fontWeight: 'bold',
-                                                '&:hover': {
-                                                    color: 'red',
-                                                    transition: '0.5s',
-                                                },
-                                            }}>{item.title}
-                                        </Typography>
+
+
+                                        <Link to="/services" style={{ color: 'black', textDecoration: 'none' }}>
+                                            <Typography
+                                                sx={{
+                                                    fontSize: '24px',
+                                                    fontFamily: 'math',
+                                                    color: 'black',
+                                                    fontWeight: 'bold',
+                                                    '&:hover': {
+                                                        color: 'red',
+                                                        transition: '0.5s',
+                                                    },
+                                                }}>{item.title}
+                                            </Typography>
+                                        </Link>
+
                                         <Typography
                                             sx={{
                                                 fontSize: '16px',
@@ -1000,6 +1005,7 @@ function Herosection() {
                                             width: '75%',
                                             margin: '10px 0',
                                         }}>
+                                        <Link to="/services" style={{ color: 'black', textDecoration: 'none' }}>
                                         <Typography
                                             sx={{
                                                 fontSize: '24px',
@@ -1012,6 +1018,7 @@ function Herosection() {
                                                 },
                                             }}>{item.title}
                                         </Typography>
+                                        </Link>
                                         <Typography
                                             sx={{
                                                 fontSize: '16px',
@@ -1116,7 +1123,7 @@ function Herosection() {
 
             </Box>
 
-            
+
             <Box
                 data-aos="zoom-in-up">
                 <Footers />

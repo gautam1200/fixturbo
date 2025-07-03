@@ -54,7 +54,7 @@ function ResponsiveDrawer(props) {
     handleDrawerClose();
   };
 
-  const menuItems = ['Home', 'Cart', 'Send email', 'Drafts'];
+  const menuItems = ['Home', 'inbox', 'Send email', 'Drafts'];
 
   const drawer = (
     <div>

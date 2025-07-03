@@ -192,7 +192,7 @@ function Services() {
                                         {data.text}
 
                                     </Typography>
-                                    <Button
+                                    {/* <Button
                                         sx={{
                                             alignItems: 'center',
                                             fontSize: '18px',
@@ -215,7 +215,7 @@ function Services() {
                                                 verticalAlign: 'top',
                                             }} />
 
-                                    </Button>
+                                    </Button> */}
                                     <Box
                                     sx={{
                                         boxSizing: 'border-box',

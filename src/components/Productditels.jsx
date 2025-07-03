@@ -139,17 +139,18 @@ function Productditels() {
                 justifyContent: 'center',
                 alignItems: 'center',
             }}>
-                <Box 
-                data-aos="zoom-in-up"
-                sx={{
-                    width: '85%',
-                    margin: 'auto',
-                    display: 'flex',
-                    justifyContent: 'space-around',
-                    flexWrap: 'wrap',
-                    gap: '20px 0',
-                    padding: '30px 0',
-                }}>
+                
+                <Box
+                    data-aos="zoom-in-up"
+                    sx={{
+                        width: '85%',
+                        margin: 'auto',
+                        display: 'flex',
+                        justifyContent: 'space-around',
+                        flexWrap: 'wrap',
+                        gap: '20px 0',
+                        padding: '30px 0',
+                    }}>
                     <Box
                         sx={{
                             width: '50%',
@@ -168,7 +169,7 @@ function Productditels() {
                             boxSizing: 'border-box',
                         }}>
                         <Typography sx={{
-                            fontSize: '36px'
+                            fontSize: '32px'
                         }}>
                             <del style={{
                                 color: '#7a7a7a',

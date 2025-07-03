@@ -39,7 +39,7 @@ function Product() {
     }, [])
 
     const Productditels = (item) => {
-        navigate(`/product/${item._id}`,{state : {item}})
+        navigate(`/product/${item._id}`, { state: { item } })
     }
 
     return (
@@ -124,6 +124,22 @@ function Product() {
                 justifyContent: 'center',
                 alignItems: 'center',
             }}>
+                <Typography
+
+                    sx={{
+                        fontSize: { xs: '34px', sm: '46px', md: '56px' },
+                        fontWeight: 'bold',
+                        textAlign: 'center',
+                        lineHeight: '1.2',
+                        transition: '0.5s',
+                        fontFamily: 'math',
+                        '&:hover': {
+                            color: 'red',
+                            transition: '0.5s',
+                        },
+                    }}>
+                    All Products
+                </Typography>
                 <Box sx={{
                     width: '85%',
                     margin: 'auto',
@@ -198,7 +214,7 @@ function Product() {
                                                 ${item.cutofprice}</span>
                                         </Typography>
                                         <Button
-                                        onClick={() => Productditels(item)}
+                                            onClick={() => Productditels(item)}
                                             sx={{
                                                 alignItems: 'center',
                                                 fontSize: '18px',
@@ -208,7 +224,7 @@ function Product() {
                                                 padding: '10px 20px',
                                                 color: 'black',
                                                 marginTop: '10px',
-                                                
+
                                                 '&:hover': {
                                                     backgroundColor: 'red',
                                                     color: 'white',
@@ -223,7 +239,7 @@ function Product() {
                                                 }} />
 
                                         </Button>
-                                        
+
                                     </Box>
                                 </Box>
                             </>
@@ -233,7 +249,7 @@ function Product() {
             </Box>
 
 
-            
+
             <Box
                 data-aos="zoom-in-up">
                 <Footers />
