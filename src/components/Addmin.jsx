@@ -17,8 +17,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-import Cart from '../components/Cart'; // 📷 multi-photo upload form
-import Footer from './Herosection';     // 📦 footer component
+import Cart from '../components/Cart'; 
+import Footer from './Herosection';    
+import Servicess from './Servicess';
 
 const drawerWidth = 240;
 
@@ -44,21 +45,22 @@ function ResponsiveDrawer(props) {
   };
 
   const handleMenuClick = (text) => {
-    if (text === 'Inbox') {
-      setSelectedComponent('cart');
-    } else if (text === 'Home') {
+    if (text === 'services') {
+      setSelectedComponent('inbox');
+    } else if (text === 'Cart') {
       setSelectedComponent('footer');
     } else {
-      setSelectedComponent('home');
+      setSelectedComponent('cart');
     }
     handleDrawerClose();
   };
 
-  const menuItems = ['Home', 'inbox', 'Send email', 'Drafts'];
+  const menuItems = ['Cart', 'services', 'Send email', 'Drafts'];
 
   const drawer = (
     <div>
-      <Toolbar />
+      <h1>𝐈𝐧𝐭𝐞𝐫𝐯𝐢𝐞𝐰 𝐏𝐨𝐫𝐭𝐚𝐥</h1> 
+      {/* <Toolbar /> */}
       <Divider />
       <List>
         {menuItems.map((text, index) => (
@@ -91,10 +93,10 @@ function ResponsiveDrawer(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   const renderComponent = () => {
-    if (selectedComponent === 'cart') {
-      return <Cart />;
+    if (selectedComponent === 'inbox') {
+      return <Servicess />;
     } else if (selectedComponent === 'footer') {
-      return <Footer />;
+      return <Cart />;
     } else {
       return (
         <Typography sx={{ marginBottom: 2 }}>
@@ -125,7 +127,7 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Responsive Drawer
+            Welcome To Admin Panel
           </Typography>
         </Toolbar>
       </AppBar>
@@ -135,6 +137,7 @@ function ResponsiveDrawer(props) {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
+        
         <Drawer
           container={container}
           variant="temporary"
@@ -165,10 +168,12 @@ function ResponsiveDrawer(props) {
         component="main"
         sx={{
           flexGrow: 1,
-          p: 3,
+          p: 0,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
+          boxSizing:'border-box'
         }}
       >
+      
         <Toolbar />
         {renderComponent()}
       </Box>
@@ -181,3 +186,87 @@ ResponsiveDrawer.propTypes = {
 };
 
 export default ResponsiveDrawer;
+
+
+
+// https://interview-pannel.vercel.app/
+
+
+
+// import React from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import { Formik, Form} from 'formik';
+// import { TextField, Typography, Button, Box, Card } from '@mui/material';
+// import axios from 'axios';
+
+// const Adminpenal = () => {
+//   const navigate = useNavigate();
+
+//   const handleSubmit = async (values, actions) => {
+//     try {
+//       await axios.post('https://interviewback-ucb4.onrender.com/admin/login', values);
+//       console.log('success');
+//       actions.resetForm();
+//       navigate('/home');
+//     } catch (err) {
+//       console.error('error', err);
+//       actions.setSubmitting(false);
+//     }
+//   };
+
+//   // https://generateapi.onrender.com/api/addmin
+//   return (
+//     <Box >
+//       <Card >
+//         <Box>
+//           <Typography variant="h4" color="#0288d1" fontWeight="700">
+//             Admin Panel
+//           </Typography>
+
+//           <Formik
+//             initialValues={{ email: '', password: '' }}
+//             onSubmit={handleSubmit}
+//           >
+//             {({ values, handleChange, isSubmitting }) => (
+//               <Form>
+//                 <Box display="flex" flexDirection="column" alignItems="center">
+//                   <TextField
+//                     name="email"
+//                     placeholder="email"
+//                     value={values.email}
+//                     onChange={handleChange}
+//                     fullWidth
+//                     sx={{ maxWidth: 330 }}
+//                   />
+//                   <TextField
+//                     name="password"
+//                     type="password"
+//                     placeholder="password"
+//                     value={values.password}
+//                     onChange={handleChange}
+//                     fullWidth
+//                     sx={{ maxWidth: 330, mt: 2 }}
+//                   />
+//                   <Button
+//                     type='submit'
+//                     variant="contained"
+//                     sx={{
+//                       background: 'linear-gradient(135deg, #4fc3f7 0%, #0288d1 100%)',
+//                       color: "white",
+//                       width: { lg: 330, md: 330, sm: 330, xs: 200 },
+//                       fontWeight: '600'
+//                     }}
+//                   >
+//                     Submit
+//                   </Button>
+//                 </Box>
+//               </Form>
+//             )}
+//           </Formik>
+//         </Box>
+//       </Card>
+//     </Box>
+//   );
+// };
+
+// export default Adminpenal;

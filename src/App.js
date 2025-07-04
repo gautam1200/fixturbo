@@ -15,7 +15,7 @@
 
 
 // function App() {
-  //   return (
+//   return (
 //     <>
 //     {/* <ScrollToTop/> */}
 //     {/* <SlickGo/> */}
@@ -54,12 +54,17 @@ import './App.css';
 
 // Import page components
 import Home from "../src/components/Herosection";
- import About from './components/About';
+import About from './components/About';
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 import Product from "./components/Product";
 import ResponsiveDrawer from "./components/Addmin";
 import Productditels from "./components/Productditels";
+import Cart from "./components/Cart";
+import Adminpenal from "./components/Addmin";
+import Add from "./components/Add";
+import Ad from "./components/Ad";
+import Servicess from "./components/Servicess";
 // import Contact from "./pages/Contact";
 // import Services from "./pages/Services";
 // import Projects from "./pages/Projects";
@@ -72,16 +77,24 @@ function App() {
 
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
-        <Route path='/product' element={<Product/>} />
-        <Route path = '/product/:id' element={<Productditels/>} />
-      
-      </Routes>
+        <Route path="/servicess" element={<Servicess />} />
 
-      {/* <ResponsiveDrawer /> */}
+        <Route path='/product' element={<Product />} />
+        <Route path='/product/:id' element={<Productditels />} />
+        <Route path="/" element={<Add />} />
+        <Route path="/ad" element={<Ad />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/adminpenal" element={<Adminpenal/>} />
+      </Routes>
+      {/* <Cart/> */}
+      {/* <Add/> */}
+      {/* <Product/> */}
+      {/* <ResponsiveDrawer />  */}
+{/* <Ad/> */}
+      {/* <Adminpenal/> */}
     </>
   );
 }

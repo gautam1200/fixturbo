@@ -56,8 +56,8 @@ function About() {
   ];
   return (
     <>
-        <Header />
-        <ScrollToTop />
+      <Header />
+      <ScrollToTop />
       <Box
         data-aos="zoom-in-up"
         sx={{
@@ -118,7 +118,7 @@ function About() {
             </Box>
           </Box>
           <Box sx={{
-            width: { xs: '100%', sm: '100%', md: '50%'},
+            width: { xs: '100%', sm: '100%', md: '50%' },
           }}>
             <img src={car} alt="" width={'100%'} />
           </Box>
@@ -427,6 +427,10 @@ function About() {
                         fontSize: { xs: '20px', sm: '24px', md: '30px' },
                         fontWeight: 'bold',
                         color: 'black',
+                        '&:hover': {
+                          color: 'red',
+                          transition: '0.5s',
+                        }
                       }}>
                       {item.title}
                     </Typography>
@@ -568,8 +572,6 @@ function About() {
 
         </Box>
       </Box >
-     
-
 
       <Box
         data-aos="zoom-in-up">

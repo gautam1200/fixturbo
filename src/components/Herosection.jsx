@@ -576,7 +576,7 @@ function Herosection() {
 
                 }}>
                 <Typography
-                    // data-aos="fade-up"
+                   
                     sx={{
                         fontSize: { xs: '34px', sm: '46px', md: '56px' },
                         fontWeight: 'bold',
