@@ -71,7 +71,7 @@ function App() {
       {/* <Header /> */}
 
 
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
@@ -79,9 +79,9 @@ function App() {
         <Route path='/product' element={<Product/>} />
         <Route path = '/product/:id' element={<Productditels/>} />
       
-      </Routes> */}
+      </Routes>
 
-      <ResponsiveDrawer />
+      {/* <ResponsiveDrawer /> */}
     </>
   );
 }

@@ -299,7 +299,8 @@ function Productditels() {
                                         background: 'white',
                                         padding: '20px 10px',
                                         boxSizing: 'border-box',
-                                        borderRadius: '10px'
+                                        borderRadius: '10px',
+                                        backgroundColor: '#d8d8d85c',
                                     }}
                                 >
                                     <Box
@@ -308,7 +309,6 @@ function Productditels() {
                                             justifyContent: 'center',
                                             padding: '10px',
                                             boxSizing: 'border-box',
-                                            backgroundColor: '#d8d8d8',
                                             borderRadius: '10px 10px 0 0',
                                         }}>
 
