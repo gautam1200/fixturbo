@@ -374,7 +374,7 @@ function About() {
             }}>  WORK PROCESS  </span>
           <Typography sx={
             {
-              fontSize: { xs: '31px', sm: '46px', md: '56px' },
+              fontSize: { xs: '29px', sm: '46px', md: '56px' },
               fontWeight: 'bold',
               textAlign: 'center',
               lineHeight: '1.2',
@@ -446,45 +446,7 @@ function About() {
               </Box>
             ))
           }
-          {/* <Box sx={{
-            width: { xs: '100%', sm: '100%', md: '30%' },
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '10px',
-            display: 'flex',
-          }}>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                textAlign: 'center',
-                gap: '10px',
-              }}>
-
-              <Box>
-              <img src={Solutions1} alt="" style={{
-                borderRadius: '50%',
-                width: '80px',
-              }} />
-                <Typography
-                  sx={{
-                    fontSize: { xs: '20px', sm: '24px', md: '30px' },
-                    fontWeight: 'bold',
-                    color: 'black',
-                  }}>
-                 Mobile Car Repair
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: { xs: '16px', sm: '18px', md: '18px' },
-                    color: 'black',
-                  }}>
-                 By reducing customer trips to garages, mobile mechanics help lower fuel use and carbon emissions.
-                </Typography>
-              </Box>
-            </Box>
-          </Box> */}
+       
         </Box>
       </Box>
 
@@ -522,11 +484,13 @@ function About() {
           }}>
 
           <Box
-            sx={{ width: { xs: '100%', sm: '80%', md: '50%' } }}>
+            sx={{ width: { xs: '100%', sm: '80%', md: '50%' } ,
+            textAlign:''}}>
             <span className='line'
               style={{
                 color: 'red',
-                fontSize: '18px'
+                fontSize: '18px',
+               
 
               }}>
               Contact us</span>
@@ -535,6 +499,7 @@ function About() {
               fontWeight: '900',
               lineHeight: '1.2',
               fontFamily: 'math',
+              textAlign:'center',
               padding: '10px 0',
               '&:hover': {
                 color: 'red',

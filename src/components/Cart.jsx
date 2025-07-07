@@ -734,7 +734,7 @@ function Servicess() {
                 <td>{b.ratingcount}</td>
                 <td style={{ padding: 0, verticalAlign: 'top' }}>
                   <div style={{
-                    height: '70px',
+                    height: '90px',
                     overflowY: 'auto',
                     boxSizing: 'border-box',
                   }}>

@@ -12,141 +12,139 @@
 // }
 
 // export default Servicess
-
-import { Box, Typography } from '@mui/material';
-import axios from 'axios';
-import { Field, Form, Formik } from 'formik';
 import React, { useEffect, useState } from 'react';
+import { Box, Button, Typography, TextField } from '@mui/material';
+import { Formik, Form, Field } from 'formik';
+import axios from 'axios';
 
 function Servicess() {
-    const initialValues = {
-        title:'',
-        text:'',
-        icon:[],
-        image: [],
-    };
+  const key = 'PwkRtdydOfBZmgE2';
+  const [data, setData] = useState([]);
+  const [editId, setEditId] = useState(null);
+  const [open, setOpen] = useState(false);
 
-    const key = ' PwkRtdydOfBZmgE2';
+  const fetchServices = () => {
+    axios.get('https://generateapi.onrender.com/api/service', {
+      headers: { Authorization: key }
+    })
+    .then(res => setData(res.data.Data))
+    .catch(console.error);
+  }
 
-    const [data, setdata] = useState([])
+  useEffect(fetchServices, []);
 
-    const Products = () => {
-        axios.get('https://generateapi.onrender.com/api/service', {
-            headers: {
-                Authorization: key,
-            }
-        })
-            .then((res) => {
-                console.log("hyy");
-                setdata(res.data.Data)
+  const handleSubmit = (values, { resetForm }) => {
+    const formData = new FormData();
+    formData.append('title', values.title);
+    formData.append('text', values.text);
+    values.icon.forEach(file => formData.append('icon', file));
+    values.image.forEach(file => formData.append('image', file));
 
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }
-    useEffect(() => {
-        Products()
-    }, [])
+    const request = editId
+      ? axios.put(`https://generateapi.onrender.com/api/service/${editId}`, formData, { headers: { Authorization: key, 'Content-Type': 'multipart/form-data' } })
+      : axios.post('https://generateapi.onrender.com/api/service', formData, { headers: { Authorization: key, 'Content-Type': 'multipart/form-data' } });
 
-    const handleSubmit = (values, { resetForm }) => {
-        const formData = new FormData();
-        formData.append('title', values.title);
-        formData.append('text', values.text);
-        values.icon.forEach((icon) => {
-            formData.append('icon', icon);
-        });
-        
+    request.then(() => {
+      fetchServices();
+      resetForm();
+      setEditId(null);
+      setOpen(false);
+    }).catch(console.error);
+  };
 
-        values.image.forEach((img) => {
-            formData.append('image', img);
-        });
+  const deleteData = id => {
+    axios.delete(`https://generateapi.onrender.com/api/service/${id}`, {
+      headers: { Authorization: key }
+    })
+    .then(fetchServices)
+    .catch(console.error);
+  };
 
-        axios
-            .post('https://generateapi.onrender.com/api/service', formData, {
-                headers: {
-                    Authorization: key,
-                    'Content-Type': 'multipart/form-data',
-                },
-            })
-            .then((response) => {
-                console.log('Success:', response.data);
-                Products()
-                resetForm();
-            })
-            .catch((error) => {
-                console.error('Upload error:', error);
-            });
-    };
-        const deletdata = (id) => {
-        axios.delete(`https://generateapi.onrender.com/api/service/${id}`, {
-            headers: {
-                Authorization: key,
-                'Content-Type': 'multipart/form-data'
-            },
-        })
-            .then((res) => {
-                console.log("hello");
-                Products()
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }
+  const startEdit = item => {
+    setEditId(item._id);
+    setOpen(true);
+    // Could pref-fill form values via initialValues and enableReinitialize
+  };
 
+  return (
+    <Box sx={{ p: 4 }}>
+      <Typography variant="h5">{open ? 'Edit Service' : 'Add Service'}</Typography>
 
-    return (
-        <>
-            <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-                {({ setFieldValue }) => (
-                    <Form encType="multipart/form-data">
-                        <Field name="title" type="text" placeholder="Title"  />
-                        <Field name="text" type="text" placeholder="Text"  />
-                        <input
-                            name="icon"
-                            type="file"
-                            onChange={(e) => {
-                                const files = Array.from(e.currentTarget.files);
-                                setFieldValue('icon', files);
-                            }}></input>
+      <Formik
+        key={editId} // reinitialize when editing
+        initialValues={{
+          title: '',
+          text: '',
+          icon: [],
+          image: []
+        }}
+        onSubmit={handleSubmit}
+        enableReinitialize
+      >
+        {({ setFieldValue, values }) => (
+          <Form encType="multipart/form-data">
+            <Field as={TextField} name="title" label="Title" fullWidth sx={{ mb: 2 }} />
+            <Field as={TextField} name="text" label="Text" fullWidth multiline rows={3} sx={{ mb: 2 }} />
 
-                        <input
-                            name="image"
-                            type="file"
-                            multiple
-                            onChange={(e) => {
-                                const files = Array.from(e.currentTarget.files);
-                                setFieldValue('image', files);
-                            }}
-                        />
+            <Typography>Icons (choose multiple)</Typography>
+            <input
+              name="icon"
+              type="file"
+              multiple
+              accept="image/*"
+              onChange={e => {
+                setFieldValue('icon', Array.from(e.currentTarget.files));
+              }}
+            />
 
-                        <button type="submit">Submit</button>
-                        
-                    </Form>
-                )}
-            </Formik>
+            <Typography sx={{ mt: 2 }}>Images (choose multiple)</Typography>
+            <input
+              name="image"
+              type="file"
+              multiple
+              accept="image/*"
+              onChange={e => {
+                setFieldValue('image', Array.from(e.currentTarget.files));
+              }}
+            />
 
-            <Box sx={{
-                width: '100%',
-            }}>
+            <Button type="submit" variant="contained" color="primary" sx={{ mt: 2 }}>
+              {open ? 'Update' : 'Submit'}
+            </Button>
+            {open && (
+              <Button onClick={() => { setOpen(false); setEditId(null); }} sx={{ ml: 2, mt: 2 }}>Cancel</Button>
+            )}
+          </Form>
+        )}
+      </Formik>
 
-                {
-                    data.map((b, index) => (
-                        <>
-                        <h1>{b.title}</h1>
-                        <h1>{b.text}</h1>
-                        <img src={b.icon} alt="" width={'200px'} />
-                        <img src={b.image} alt="" width={'200px'} />
-                                    <button onClick={() => deletdata(b._id)}>Delete{index+1}</button>  
-                        </>
-                    ))}
-
-            </Box >
-        </>
-    );
+      <Box sx={{ mt: 6 }}>
+        <table width="100%" border="1" cellPadding="8" style={{ textAlign: 'center' }}>
+          <thead>
+            <tr>
+              {['Title', 'Text',  'Image', 'Delete', 'Edit'].map(h => <th key={h}>{h}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {data.map(item => (
+              <tr key={item._id}>
+                <td>{item.title}</td>
+                <td>{item.text}</td>
+                {/* <td><img src={item.icon?.[0]} alt="" width="80" color='black' /></td> */}
+                <td><img src={item.image?.[0]} alt="" width="80" /></td>
+                <td><Button onClick={() => deleteData(item._id)} color="error">Delete</Button></td>
+                <td><Button onClick={() => startEdit(item)}>Edit</Button></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Box>
+    </Box>
+  );
 }
 
 export default Servicess;
+
 
 
 // link:' https://generateapi.onrender.com/api/service'

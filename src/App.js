@@ -65,6 +65,7 @@ import Adminpenal from "./components/Addmin";
 import Add from "./components/Add";
 import Ad from "./components/Ad";
 import Servicess from "./components/Servicess";
+import Textsave from "./components/Login";
 // import Contact from "./pages/Contact";
 // import Services from "./pages/Services";
 // import Projects from "./pages/Projects";
@@ -81,7 +82,6 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
         <Route path="/servicess" element={<Servicess />} />
-
         <Route path='/product' element={<Product />} />
         <Route path='/product/:id' element={<Productditels />} />
         <Route path="/" element={<Add />} />
@@ -89,6 +89,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/adminpenal" element={<Adminpenal/>} />
       </Routes>
+        {/* <Textsave/> */}
       {/* <Cart/> */}
       {/* <Add/> */}
       {/* <Product/> */}

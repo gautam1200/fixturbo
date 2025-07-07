@@ -153,18 +153,21 @@ function Productditels() {
                     }}>
                     <Box
                         sx={{
-                            width: '50%',
+                            width: {xs:'100%' , sm:'50%'},
                             padding: '20px',
                             boxSizing: 'border-box',
                             border: '1px solid #00000061',
-                            borderRadius: '10px'
+                            borderRadius: '10px',
+                            display:'flex',
+                            alignItems:'center'
+
                         }}>
                         <img src={produc?.image} alt="" width={'100%'} />
 
                     </Box>
                     <Box
                         sx={{
-                            width: '50%',
+                            width:  {xs:'100%' , sm:'50%'},
                             padding: '20px',
                             boxSizing: 'border-box',
                         }}>
@@ -186,7 +189,7 @@ function Productditels() {
                         </Typography>
                         <Typography
                             sx={{
-                                fontSize: '38px',
+                                fontSize: {xs:'32px',sm:'36px'},
                                 fontWeight: 'bold',
                                 fontFamily: 'math',
                                 transition: '0.5s',
@@ -217,7 +220,8 @@ function Productditels() {
                         </Box>
                         <Typography
                             sx={{
-                                margin: '10px 0'
+                                margin: '10px 0',
+                                textAlign:'justify'
                             }}>
                             {produc?.discription}
 
@@ -271,7 +275,6 @@ function Productditels() {
                 data-aos="zoom-in-up"
                 sx={{
                     width: '100%',
-                    paddingTop: '50px',
                     paddingBottom: '50px',
                     display: 'flex',
                     flexWrap: 'wrap',
@@ -279,7 +282,7 @@ function Productditels() {
                     alignItems: 'center',
                 }}>
                 <Box
-                    data-aos="zoom-in-up"
+                    // data-aos="zoom-in-up"
                     sx={{
                         width: '85%',
                         margin: 'auto',
@@ -293,7 +296,7 @@ function Productditels() {
                         data.slice(0, 4).map((item, index) => (
                             <>
                                 <Box
-                                    data-aos="zoom-in-up"
+                                    // data-aos="zoom-in-up"
                                     sx={{
                                         width: { xs: '70%', sm: '43%', md: '30%', lg: '24%' },
                                         background: 'white',

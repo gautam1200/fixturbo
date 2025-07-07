@@ -29,8 +29,8 @@ function Ad() {
     axios.get('https://generateapi.onrender.com/api/cart', {
       headers: { Authorization: key }
     })
-    .then(res => setData(res.data.Data))
-    .catch(console.error);
+      .then(res => setData(res.data.Data))
+      .catch(console.error);
   };
 
   React.useEffect(fetchProducts, []);
@@ -60,8 +60,8 @@ function Ad() {
     axios.delete(`https://generateapi.onrender.com/api/cart/${id}`, {
       headers: { Authorization: key }
     })
-    .then(fetchProducts)
-    .catch(console.error);
+      .then(fetchProducts)
+      .catch(console.error);
   };
 
   const editData = item => {
@@ -114,14 +114,14 @@ function Ad() {
               return (
                 <Form encType="multipart/form-data">
                   <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                    {['title','price','cutofprice','rating','ratingcount','discription','sku','category','tags']
+                    {['title', 'price', 'cutofprice', 'rating', 'ratingcount', 'discription', 'sku', 'category', 'tags']
                       .map(name => (
                         <Field key={name}
                           as={TextField}
                           name={name}
                           label={name.charAt(0).toUpperCase() + name.slice(1)}
                           fullWidth
-                          type={['price','cutofprice','rating','ratingcount'].includes(name) ? 'number' : 'text'}
+                          type={['price', 'cutofprice', 'rating', 'ratingcount'].includes(name) ? 'number' : 'text'}
                         />
                       ))
                     }
@@ -146,7 +146,7 @@ function Ad() {
         <table border="1" cellSpacing="6" width="100%" style={{ textAlign: 'center' }}>
           <thead>
             <tr>
-              {['Title','Price','Cutoff Price','Rating','Rating Count','Description','SKU','Category','Tags','Image','Delete','Update']
+              {['Title', 'Price', 'Cutoff Price', 'Rating', 'Rating Count', 'Description', 'SKU', 'Category', 'Tags', 'Image', 'Delete', 'Update']
                 .map(h => <th key={h}>{h}</th>)}
             </tr>
           </thead>
@@ -175,7 +175,7 @@ function Ad() {
                   <img src={b.image?.[0] || b.image} alt="" width="100px" />
                 </td>
                 <td>
-                  <Button onClick={() => deleteData(b._id)}>Delete {i + 1}</Button>
+                  <Button onClick={() => deleteData(b._id)}>Delete</Button>
                 </td>
                 <td>
                   <Button onClick={() => editData(b)}>Update</Button>
@@ -190,4 +190,9 @@ function Ad() {
 }
 
 export default Ad;
+
+
+
+
+
 
