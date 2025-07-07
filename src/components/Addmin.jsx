@@ -17,9 +17,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-import Cart from '../components/Cart'; 
-import Footer from './Herosection';    
+import Cart from '../components/Cart';
+import Footer from './Herosection';
 import Servicess from './Servicess';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -59,7 +61,8 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
-      <h1>𝐈𝐧𝐭𝐞𝐫𝐯𝐢𝐞𝐰 𝐏𝐨𝐫𝐭𝐚𝐥</h1> 
+
+      <h1>𝐈𝐧𝐭𝐞𝐫𝐯𝐢𝐞𝐰 𝐏𝐨𝐫𝐭𝐚𝐥</h1>
       {/* <Toolbar /> */}
       <Divider />
       <List>
@@ -107,7 +110,9 @@ function ResponsiveDrawer(props) {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex',
+      justifyContent:'space-between'
+     }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -116,7 +121,9 @@ function ResponsiveDrawer(props) {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar>
+        <Toolbar sx={{
+          justifyContent:'space-between'
+        }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -129,6 +136,27 @@ function ResponsiveDrawer(props) {
           <Typography variant="h6" noWrap component="div">
             Welcome To Admin Panel
           </Typography>
+          <Box>
+            <Link to="/home" style={{ color: 'black', textDecoration: 'none' }}>
+              <Button
+                sx={{
+                  alignItems: 'center',
+                  fontSize: '18px',
+                  display: 'flex',
+                  background: 'none',
+                  border: 'none',
+                  padding: '10px 20px',
+                  color: 'white',
+                  '&:hover': {
+                    backgroundColor: 'red',
+                    color: 'white',
+                    transition: '0.5s',
+                  },
+                }}>
+                Home
+              </Button>
+            </Link>
+          </Box>
         </Toolbar>
       </AppBar>
 
@@ -137,7 +165,7 @@ function ResponsiveDrawer(props) {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        
+
         <Drawer
           container={container}
           variant="temporary"
@@ -170,10 +198,10 @@ function ResponsiveDrawer(props) {
           flexGrow: 1,
           p: 0,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
-          boxSizing:'border-box'
+          boxSizing: 'border-box'
         }}
       >
-      
+
         <Toolbar />
         {renderComponent()}
       </Box>

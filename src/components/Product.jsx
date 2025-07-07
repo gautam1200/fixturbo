@@ -67,7 +67,7 @@ function Product() {
                     }}>
                     <Box sx={
                         {
-                            width: { xs: '100%', sm: '100%', md: '50%' },
+                            width: { xs: '100%', sm: '50%', md: '50%' },
                             color: 'white',
                             display: 'flex',
                             flexDirection: 'column',
@@ -108,7 +108,7 @@ function Product() {
                         </Box>
                     </Box>
                     <Box sx={{
-                        width: { xs: '100%', sm: '100%', md: '50%' },
+                        width: { xs: '100%', sm: '50%', md: '50%' },
                     }}>
                         <img src={car} alt="" width={'100%'} />
                     </Box>
@@ -154,7 +154,7 @@ function Product() {
                             <>
                                 <Box
                                     sx={{
-                                        width: { xs: '70%', sm: '43%', md: '30%', lg: '24%' },
+                                        width: { xs: '90%', sm: '47%', md: '30%', lg: '24%' },
                                         background: 'white',
                                         padding: '20px 10px',
                                         boxSizing: 'border-box',
