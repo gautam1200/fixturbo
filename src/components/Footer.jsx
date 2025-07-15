@@ -124,18 +124,16 @@ function Footers() {
                     }}>
 
 
-                    <Box className="main" display={'flex'}>
-                        <Box className="logo" width={'50%'}>
+                    <Box className="main" display={'flex'} flexWrap={'wrap'}>
+                        <Box className="logo" width={{ xs: '80%', sm: '50%', md: '50%' }}>
                             <img src={logo} alt="Cafeu Logo" />
                         </Box>
                         <Box
-                            width="50%"
+                            width={{ xs: '100%', sm: '50%', md: '50%' }}
                             display="flex"
                             justifyContent="end"
                             alignItems="center"
                             color="red"
-
-
                         >
                             <InstagramIcon sx={iconStyle} />
                             <FacebookIcon sx={iconStyle} />

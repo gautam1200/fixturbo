@@ -191,10 +191,6 @@ function Herosection() {
         Gallerys()
     }, [])
 
-
-
-
-
     return (
 
         <>
@@ -576,7 +572,7 @@ function Herosection() {
 
                 }}>
                 <Typography
-                   
+
                     sx={{
                         fontSize: { xs: '34px', sm: '46px', md: '56px' },
                         fontWeight: 'bold',
@@ -1006,18 +1002,18 @@ function Herosection() {
                                             margin: '10px 0',
                                         }}>
                                         <Link to="/services" style={{ color: 'black', textDecoration: 'none' }}>
-                                        <Typography
-                                            sx={{
-                                                fontSize: '24px',
-                                                fontFamily: 'math',
-                                                color: 'black',
-                                                fontWeight: 'bold',
-                                                '&:hover': {
-                                                    color: 'red',
-                                                    transition: '0.5s',
-                                                },
-                                            }}>{item.title}
-                                        </Typography>
+                                            <Typography
+                                                sx={{
+                                                    fontSize: '24px',
+                                                    fontFamily: 'math',
+                                                    color: 'black',
+                                                    fontWeight: 'bold',
+                                                    '&:hover': {
+                                                        color: 'red',
+                                                        transition: '0.5s',
+                                                    },
+                                                }}>{item.title}
+                                            </Typography>
                                         </Link>
                                         <Typography
                                             sx={{
@@ -1119,11 +1115,35 @@ function Herosection() {
                             </>
                         ))}
                 </Box>
+                    <Link to="/gallery" style={{ color: 'black', textDecoration: 'none' }}>
+                        <Button
+                            sx={{
+                                alignItems: 'center',
+                                fontSize: '18px',
+                                display: 'flex',
+                                background: 'none',
+                                border: 'none',
+                                padding: '10px 20px',
+                                color: 'black',
+                                
+                                margin:'auto',
+                                '&:hover': {
+                                    backgroundColor: 'red',
+                                    color: 'white',
+                                    transition: '0.5s',
+                                },
+                            }}>
+                            More images
+                            <ArrowForwardIcon
+                                sx={{
+                                    verticalAlign: 'top',
+                                }} />
+
+                        </Button>
+                    </Link>
 
 
             </Box>
-
-
             <Box
                 data-aos="zoom-in-up">
                 <Footers />

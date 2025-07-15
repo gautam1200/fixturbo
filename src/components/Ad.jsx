@@ -67,8 +67,6 @@ function Ad() {
   const editData = item => {
     setEditId(item._id);
     setOpen(true);
-    // Formik will populate through render props setValues
-    // We'll pass `initialValues` and set from parent in Formik
   };
 
   return (

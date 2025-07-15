@@ -12,7 +12,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
+import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
+import CollectionsIcon from '@mui/icons-material/Collections';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -22,6 +23,7 @@ import Footer from './Herosection';
 import Servicess from './Servicess';
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
+import Gallery from './Gallery';
 
 const drawerWidth = 240;
 
@@ -51,13 +53,15 @@ function ResponsiveDrawer(props) {
       setSelectedComponent('inbox');
     } else if (text === 'Cart') {
       setSelectedComponent('footer');
+    } else if (text === 'gallery') {
+      setSelectedComponent('gallery');
     } else {
       setSelectedComponent('cart');
     }
     handleDrawerClose();
   };
 
-  const menuItems = ['Cart', 'services', 'Send email', 'Drafts'];
+  const menuItems = ['Cart', 'services','gallery'];
 
   const drawer = (
     <div>
@@ -70,7 +74,7 @@ function ResponsiveDrawer(props) {
           <ListItem key={text} disablePadding>
             <ListItemButton onClick={() => handleMenuClick(text)}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? <InboxIcon />  : <MiscellaneousServicesIcon />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -78,18 +82,7 @@ function ResponsiveDrawer(props) {
         ))}
       </List>
       <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton onClick={() => handleMenuClick(text)}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+     
     </div>
   );
 
@@ -100,11 +93,12 @@ function ResponsiveDrawer(props) {
       return <Servicess />;
     } else if (selectedComponent === 'footer') {
       return <Cart />;
+    } else if (selectedComponent === 'gallery') {
+      return <Gallery />;
     } else {
       return (
-        <Typography sx={{ marginBottom: 2 }}>
-          Welcome to the dashboard!
-        </Typography>
+        console.log("0")
+        
       );
     }
   };
@@ -215,86 +209,3 @@ ResponsiveDrawer.propTypes = {
 
 export default ResponsiveDrawer;
 
-
-
-// https://interview-pannel.vercel.app/
-
-
-
-// import React from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import { Formik, Form} from 'formik';
-// import { TextField, Typography, Button, Box, Card } from '@mui/material';
-// import axios from 'axios';
-
-// const Adminpenal = () => {
-//   const navigate = useNavigate();
-
-//   const handleSubmit = async (values, actions) => {
-//     try {
-//       await axios.post('https://interviewback-ucb4.onrender.com/admin/login', values);
-//       console.log('success');
-//       actions.resetForm();
-//       navigate('/home');
-//     } catch (err) {
-//       console.error('error', err);
-//       actions.setSubmitting(false);
-//     }
-//   };
-
-//   // https://generateapi.onrender.com/api/addmin
-//   return (
-//     <Box >
-//       <Card >
-//         <Box>
-//           <Typography variant="h4" color="#0288d1" fontWeight="700">
-//             Admin Panel
-//           </Typography>
-
-//           <Formik
-//             initialValues={{ email: '', password: '' }}
-//             onSubmit={handleSubmit}
-//           >
-//             {({ values, handleChange, isSubmitting }) => (
-//               <Form>
-//                 <Box display="flex" flexDirection="column" alignItems="center">
-//                   <TextField
-//                     name="email"
-//                     placeholder="email"
-//                     value={values.email}
-//                     onChange={handleChange}
-//                     fullWidth
-//                     sx={{ maxWidth: 330 }}
-//                   />
-//                   <TextField
-//                     name="password"
-//                     type="password"
-//                     placeholder="password"
-//                     value={values.password}
-//                     onChange={handleChange}
-//                     fullWidth
-//                     sx={{ maxWidth: 330, mt: 2 }}
-//                   />
-//                   <Button
-//                     type='submit'
-//                     variant="contained"
-//                     sx={{
-//                       background: 'linear-gradient(135deg, #4fc3f7 0%, #0288d1 100%)',
-//                       color: "white",
-//                       width: { lg: 330, md: 330, sm: 330, xs: 200 },
-//                       fontWeight: '600'
-//                     }}
-//                   >
-//                     Submit
-//                   </Button>
-//                 </Box>
-//               </Form>
-//             )}
-//           </Formik>
-//         </Box>
-//       </Card>
-//     </Box>
-//   );
-// };
-
-// export default Adminpenal;

@@ -246,7 +246,7 @@ function Productditels() {
                                 },
                             }}>
 
-                            Add to cart
+                            Bey Now
                             <ArrowForwardIcon
                                 sx={{
                                     verticalAlign: 'top',

@@ -17,6 +17,7 @@ import Add from "./components/Add";
 import Ad from "./components/Ad";
 import Servicess from "./components/Servicess";
 import Textsave from "./components/Login";
+import Images from "./components/Iamges";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
 
 
       <Routes>
+        
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
@@ -36,6 +38,7 @@ function App() {
         <Route path="/ad" element={<Ad />} />
         <Route path="/about" element={<About />} />
         <Route path="/adminpenal" element={<Adminpenal />} />
+        <Route path="/gallery" element={ <Images />} />
       </Routes>
       {/* <Textsave/> */}
       {/* <Cart/> */}

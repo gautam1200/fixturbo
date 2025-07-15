@@ -10,7 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Formik, Form, Field } from "formik";
 
-const navItems = ["Home", "About", "Services", "Product", "Contact"];
+const navItems = ["Home", "About", "Services", "Gallery", "Product", "Contact"];
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -137,7 +137,7 @@ const Header = () => {
               right: 8,
               top: 8,
               color: (theme) => theme.palette.grey[500],
-            }} 
+            }}
           >
             <CloseIcon />
           </IconButton>
@@ -223,7 +223,7 @@ const Header = () => {
             Create Account
           </Typography>
           <Typography variant="subtitle1" sx={{ color: "#616161", mb: 3 }}>
-           Fixturbo Customer Portal – Sign In
+            Fixturbo Customer Portal – Sign In
           </Typography>
           <Box
             component="form"
@@ -288,6 +288,7 @@ const Header = () => {
           </Box>
           <ul style={{ listStyle: "none", padding: "20px 0", margin: 0 }}>
             {navItems.map((item) => (
+              
               <li key={item} style={{ marginBottom: "15px" }}>
                 <Link
                   to={`/${item.toLowerCase()}`}
@@ -304,6 +305,26 @@ const Header = () => {
                 </Link>
               </li>
             ))}
+              <li>
+                <Button
+                  variant="outlined"
+                  onClick={() => setLoginOpen(true)}
+                  sx={{
+                    padding: "5px 15px",
+                    fontSize: "16px",
+                    border: "2px solid white",
+                    borderRadius: "15px",
+                    color: "white",
+                    "&:hover": {
+                      color: "white",
+                      backgroundColor: "red",
+                      border: "2px solid red",
+                    },
+                  }}
+                >
+                  Login
+                </Button>
+              </li>
           </ul>
         </Box>
       </Drawer>
