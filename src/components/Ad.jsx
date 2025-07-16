@@ -77,14 +77,6 @@ function Ad() {
         </Button>
       </Box>
 
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
-      <h1>Hello</h1>
 
       <BootstrapDialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>
