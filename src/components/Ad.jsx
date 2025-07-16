@@ -108,7 +108,7 @@ function Ad() {
                     tags: item.tags, image: [], // new upload if needed
                   });
                 }
-              }
+              } 
 
               return (
                 <Form encType="multipart/form-data">

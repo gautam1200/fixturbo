@@ -24,6 +24,7 @@ function SlickGo() {
     const key = 'INTRfBpATLpTNI5s';
 
     const [team, setteam] = useState([])
+    
 
     const Products = () => {
         axios.get('https://generateapi.onrender.com/api/member', {

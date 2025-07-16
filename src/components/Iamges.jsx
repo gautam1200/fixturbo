@@ -151,11 +151,12 @@ const Images = () => {
             className="Gallery-box"
             sx={{
               width: { xs: '100%', sm: '32%', lg: '32%' },
-              
+        
               overflow: 'hidden',
               boxSizing: 'border-box',
               position: 'relative',
               borderRadius: '30px',
+
             }}
           >
             <img className="Galleryimg" src={item.image[0]} alt="" width="100%" height={"100%"}   backgroundSize={'cover'} />

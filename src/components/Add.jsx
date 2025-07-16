@@ -137,6 +137,7 @@ const Add = () => {
         <Box sx={{
             minHeight: '100vh',
             display: 'flex',
+
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: '#f5f5f5',
@@ -153,6 +154,7 @@ const Add = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
+
                 }}>
                     <Typography variant="h4" sx={{ color: '#0288d1', fontWeight: 700 }}>
                         Welcome To Fixturbo
