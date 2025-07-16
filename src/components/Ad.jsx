@@ -77,6 +77,15 @@ function Ad() {
         </Button>
       </Box>
 
+      <h1>Hello</h1>
+      <h1>Hello</h1>
+      <h1>Hello</h1>
+      <h1>Hello</h1>
+      <h1>Hello</h1>
+      <h1>Hello</h1>
+      <h1>Hello</h1>
+      <h1>Hello</h1>
+
       <BootstrapDialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>
           {editId ? 'Edit Item' : 'Add Item'}
@@ -177,7 +186,7 @@ function Ad() {
                 </td>
                 <td>
                   <Button onClick={() => editData(b)}>Update</Button>
-                </td>
+                </td>  
               </tr>
             ))}
           </tbody>
