@@ -61,13 +61,12 @@ function ResponsiveDrawer(props) {
     handleDrawerClose();
   };
 
-  const menuItems = ['Cart', 'services','gallery'];
+  const menuItems = ['panel','Cart', 'services','gallery'];
 
   const drawer = (
     <div>
 
       <h1>𝐈𝐧𝐭𝐞𝐫𝐯𝐢𝐞𝐰 𝐏𝐨𝐫𝐭𝐚𝐥</h1>
-      {/* <Toolbar /> */}
       <Divider />
       <List>
         {menuItems.map((text, index) => (
@@ -104,6 +103,7 @@ function ResponsiveDrawer(props) {
   };
 
   return (
+    <>
     <Box sx={{ display: 'flex',
       justifyContent:'space-between'
      }}>
@@ -153,12 +153,11 @@ function ResponsiveDrawer(props) {
           </Box>
         </Toolbar>
       </AppBar>
-
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
-      >
+        >
 
         <Drawer
           container={container}
@@ -171,7 +170,7 @@ function ResponsiveDrawer(props) {
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
           slotProps={{ root: { keepMounted: true } }}
-        >
+          >
           {drawer}
         </Drawer>
         <Drawer
@@ -181,7 +180,7 @@ function ResponsiveDrawer(props) {
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
           open
-        >
+          >
           {drawer}
         </Drawer>
       </Box>
@@ -194,12 +193,21 @@ function ResponsiveDrawer(props) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           boxSizing: 'border-box'
         }}
-      >
+        >
 
         <Toolbar />
         {renderComponent()}
       </Box>
     </Box>
+      <Box sx={{
+        width:'100%',
+        height:'100px',
+        marginTop:'50px',
+        backgroundColor:'#d32020ff',
+      }}> 
+
+      </Box>
+    </>
   );
 }
 

@@ -601,7 +601,7 @@ function Herosection() {
                             <>
                                 <Box
                                     sx={{
-                                        width: { xs: '80%', sm: '43%', md: '30%', lg: '24%' },
+                                        width: { xs: '90%', sm: '43%', md: '30%', lg: '24%' },
                                         background: 'white',
                                         padding: '20px 10px',
                                         boxSizing: 'border-box',
